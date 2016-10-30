@@ -1,0 +1,241 @@
+%hierbei handelt es sich um die Präsentation imt .tex-Format
+%Abbildungen etc. müssen entsprechend in eigenen Unterordnern präsent sein!
+
+\documentclass[utf8]{beamer}
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	% oder ...
+	
+	\setbeamercovered{transparent}
+	% oder auch nicht
+}
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage[babel, german=quotes]{csquotes}
+
+\title{Grundlagen des Internets und Sicherheit im Web}
+\subtitle{Das Böse im Netz und was man dagegen tun kann} % (optional)
+\author{Georg A. Murzik, Marcus Schilling}
+\institute{Terminal.21}
+
+\date{05. November 2016}
+
+% Dies wird lediglich in den PDF Informationskatalog einfügt. Kann gut
+% weggelassen werden.
+\subject{Grundlagen des Internets v2}
+
+%Logo der MArtin-Luther Universität
+%\pgfdeclareimage[height=0.5cm]{Logo_Uni}{Abbildungen/Logo_Universitaet}
+%\logo{\pgfuseimage{Logo_Uni}}
+
+% Folgendes sollte gelöscht werden, wenn man nicht am Anfang jedes
+% Unterabschnitts die Gliederung nochmal sehen möchte.
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>{Gliederung}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+%Foliennummern
+\setbeamertemplate{footline}
+{%
+	\begin{beamercolorbox}[wd=0.5\textwidth,ht=3ex,dp=1.5ex,leftskip=.5em,rightskip=.5em]{author in head/foot}%
+		\usebeamerfont{author in head/foot}%
+		\insertframenumber{} von \inserttotalframenumber\hfill\insertshortauthor%
+	\end{beamercolorbox}%
+	\vspace*{-4.5ex}\hspace*{0.5\textwidth}%
+	\begin{beamercolorbox}[wd=0.5\textwidth,ht=3ex,dp=1.5ex,left,leftskip=.5em]{title in head/foot}%
+		\usebeamerfont{title in head/foot}%
+		\insertshorttitle%
+	\end{beamercolorbox}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                Begin der Präsentation                                        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	\section{Grundlagen des Internets}
+	\subsection{Aufbau des Internets}
+	\begin{frame}{Übersicht}
+		
+	\end{frame}
+	
+	\begin{frame}{Hosts}
+		
+	\end{frame}
+	
+	\begin{frame}{\enquote{Letzte Meile}}
+		
+	\end{frame}
+	
+	\begin{frame}{PoP}
+		
+	\end{frame}
+	
+	\begin{frame}{ISP}
+		
+	\end{frame}
+	
+	\begin{frame}{IXP}
+		
+	\end{frame}
+	
+	\begin{frame}{Sonstige Netze}
+		
+	\end{frame}
+	
+	\subsection{Kommunikation}
+	\begin{frame}{Webdienste}
+		
+	\end{frame}
+	
+	\begin{frame}{DNS}
+		
+	\end{frame}
+	
+	\begin{frame}{Webclients}
+		
+	\end{frame}
+	
+	\begin{frame}{Aufruf einer Webseite}
+		
+	\end{frame}
+	
+	\section{Gefahren im Netz}
+	\subsection{Datendiebstahl}
+	
+	\subsection{Phishing}
+	
+	\subsection{Tracking}
+	\subsubsection{Datenschutz}
+	\begin{frame}{Hintergrundwissen Datenschutz} 
+		\begin{itemize}
+			\item “Privacy protects us from abuses by those in power, even if we’re doing nothing wrong at the time of surveillance.” (Bruce Schneier)
+			\item Welche Daten werden für welchen Verwendungszweck wo erhoben, wie verarbeitet und an wen weitergegeben?
+			\item Tradeoff: Keine Daten anfallen lassen. vs. Dienste bequem in Anspruch nehmen
+			\note{ Was sind die offiziellen Spielregeln?}
+			\note{ Welche juristischen und technischen Möglichkeiten habe ich?}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Hintergrundwissen Datenschutz: Spielregeln}
+		\begin{itemize}
+			\item personenbezogenen Daten: Informationen, die mit einer Person verbunden werden
+			\item Verwendung: Sammeln, verarbeiten, weitergeben
+			\item Kenntlichmachung von notwendigen und freiwilligen Angaben
+			\item Aufklärung über etwaige Nachteile, wenn man freiwillige Angaben nicht tätigt
+			\item Einwilligung schriftlich oder digital
+			\item neuer Verwendungszweck = neue Erlaubnis
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Hintergrundwissen Datenschutz: Rechte}
+		\begin{itemize}
+			\item Informationelle Selbstbestimmung
+			\item Recht auf Auskunft: Was wird gespeichert, wo kommt es her, wo geht es hin?
+			\item Recht auf Berichtigung: Wenn was falsch ist.
+			\item Recht auf Löschung: Wenn die Daten für den vereinbarten Zweck nicht mehr notwendig sind.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Hintergrundwissen Datenschutz: Praxis}
+		\begin{itemize}
+			\item viele Länder = viele Gesetze
+			\item Es ist praktisch umstritten, welche Daten personenbezogen sind (z.B. Gerätekennung vs. natürliche Person)
+			\item wir hinterlassen beim Browsen viele Spuren, die nebenbei verarbeitet werden; durch viele Informationsquellen kann man auf die Person schließen
+			\note{Welche Techniken des Trackings werden beim genutzt?}
+			\note{Welche Maßnahmen kann man zum Schutz meiner Privatsphäre ergreifen?}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Tracking beim Verbindungsaufbau}
+		\begin{itemize}
+			\item DNS-Anfragen
+			\item IP-Adressen Routing
+			\item Social-media-like buttons
+			\item Web-beacons 
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Tracking durch verräterischen Browser}
+		\begin{itemize}
+			\item Geodaten
+			\item Browserfingerprinting
+			\item Cookies in verschiedenen Geschmacksrichtungen
+			\item URLs 
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item 
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item 
+		\end{itemize}
+	\end{frame}
+	
+	\subsubsection{\enquote{Angewandter Datenschutz} im Internet}
+	
+	\section{Counterstrike GO}
+	\subsection{Verhalten im Netz}
+	\begin{frame}{Verhalten im Netz}
+		\begin{itemize}
+			\item Datensparsamkeit
+			\begin{itemize}
+				\item Schein vs. Sein
+				\item Nicht überall registrieren, nicht eingeloggt bleiben
+			\end{itemize}
+			\item Kostenlose Dienste hinterfragen
+			\begin{itemize}
+				\item Suchmaschinen:
+				Jede Suche ist mit einer Motivation verbunden, die Rückschlüssel zulässt. https://duckduckgo.com ist gut.
+				\item Email:
+				[web / gmx / aol / google / yahoo / hotmail ...] Sind doof, weil die Nachrichten mit kommerziellen Interessen durchsucht werden. Besser: [mailbox.org / poesto.de]
+				\item Cloud:
+				Was ich nicht kontrollieren kann ist schon verloren. Würdet ihr wirklich gerne euren privaten Urlaubsfotos auf anderen Computern speichern, auf die mindestens irgendwelche Mitarbeit zugriff haben? Und außerdem: Irgendwann werden alle gehackt. Wenn, dann die Daten sehr ordentlich verschlüsseln.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\subsection{Technische Hilfsmittel}
+	\begin{frame}{Addons}
+		\noindent
+		\begin{description}
+			\item[Privaconf]{https://addons.mozilla.org/de/firefox/addon/privaconf/}
+			\item[Cookie-Controller]{https://addons.mozilla.org/de/firefox/addon/cookie-controller/}
+			\item[Canvasblocker]{https://addons.mozilla.org/de/firefox/addon/canvasblocker/}
+			\item[no-rescue-uri-leak]{https://addons.mozilla.org/de/firefox/addon/no-resource-uri-leak/}
+			\item[UserAgentChanger]{Nicht benutzen!}
+		\end{description}
+	\end{frame}
+	
+	% Da dies ein Vorlage für beliebige Vorträge ist, lassen sich kaum
+	% allgemeine Regeln zur Strukturierung angeben. Da die Vorlage für
+	% einen Vortrag zwischen 15 und 45 Minuten gedacht ist, fährt man aber
+	% mit folgenden Regeln oft gut.  
+	
+	% - Es sollte genau zwei oder drei Abschnitte geben (neben der
+	%   Zusammenfassung). 
+	% - *Höchstens* drei Unterabschnitte pro Abschnitt.
+	% - Pro Rahmen sollte man zwischen 30s und 2min reden. Es sollte also
+	%   15 bis 30 Rahmen geben.
+	
+	
+\end{document}
+
+
