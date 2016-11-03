@@ -13,6 +13,7 @@
 }
 
 \usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{times}
 \usepackage[babel, german=quotes]{csquotes}
@@ -72,44 +73,84 @@
 	\end{frame}
 	
 	\begin{frame}{Hosts}
-		
+		Ein Host ist ein Rechner, der mit anderen Rechnern im Internet Daten austauscht. Hosts sind über die gesamte Welt verstreut und können PCs, Laptops, Handys oder IoT (Internet of Things)-Geräte sein.
 	\end{frame}
 	
 	\begin{frame}{\enquote{Letzte Meile}}
-		
+		Als letzte Meile werden die Kupfer- (seltener Glasfaser-) oder Mobilfunkbrücken bezeichnet, mit denen Hosts mit den Netzwerkverteilern ihres Providers verbunden werden. Dieser Teil ist in der Praxis häufig der Flaschenhals für Internetverbindungen, da die Geschwindigkeit stark von der Länge dieser Verbindung und dem Typ der Verbindung abhängt. Je länger diese Strecke, desto langsamer ist die Internetverbindung.
+		Wenn vom Breitbandausbau geredet wird, ist damit meistens gemeint, mehr Netzwerkverteiler aufzustellen, um kürzere und somit schnellere Verbindungen zu den Hosts zu gewährleisten.		
+	\end{frame}
+
+	\begin{frame}{\enquote{Letzte Meile} II}
+		\begin{itemize}
+			\item{Bei Kupferleitungen (DSL) besitzt jeder Host eine eigene Leitung bis zum nächsten Verteiler, dem DSLAM. Diese haben eine relativ geringe Geschwindigkeit (ca. 16 Mbit, max. 64 Mbit).}
+			\item{Bei Glasfaserverbindungen teilt sich eine größere Gruppe von Hosts eine Leitung, die eine entsprechend hohe Kapazität zur Verfügung stellt. Der Nachteil ist, dass die Bandbreite abhängig von der Nutzung schwankt.}
+		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}{PoP}
-		
+		POPs (Point of Presence) sind Verbindungspunkte zwischen den Hosts und den ISPs und dienen als Netzwerkverteiler. Sie bilden die Brücke zwischen den schnellen Leitungen der ISPs und der letzten Meile der Hosts. Abhängig von den verwendeten Leitungen der letzten Meile müssen teilweise noch Übersetzungsgeräte (bspw. DSLAM [\enquote{Digital Subscriber Line Access Multiplexer}] dazwischengeschaltet werden, um die digitalen Signale des ISPs in analoge Signale umzuwandeln, die über das Kupferkabel gesendet werden können).
+		Dazu zählen auch Mobilfunkantennen bspw. für Edge (2G)-, UMTS / HSDPA (3G)- und LTE (4G)- Netze.
 	\end{frame}
 	
 	\begin{frame}{ISP}
+		ISPs besitzen eigene (Glasfaser-)Leitungen, die sich über einen geographischen Raum erstrecken und Knotenpunkte, die durch diese Leitungen verbunden werden. Diese Leitungen besitzen eine gigantische Übertragungskapazität und bestehen aus dicken Bündeln von Glasfaserkabeln, die bis zu 50GBit/s pro Kabel übertragen können.
+		ISPs werden abhängig von ihrer Größe in Tier 1, 2 und 3 unterschieden.
+	\end{frame}
+
+	\begin{frame}{ISP II}
+		\begin{enumerate}
+			\item{Tier 3: Lokale Anbieter, die sich meist auf eine oder mehrere Städte begrenzen (z.B. "Muth Antennenbau" in Halle).}
+			\item{Tier 2: Überregionale Anbieter, die sich über Kontinente erstrecken können (z.B. \enquote{Tele Columbus AG}).} 
+			\item{Tier 1: Anbieter, die eine weltumspannende Infrastruktur besitzen (z.B. "AT\&T", "Telekom", "Orange", uvm.).}
+		\end{enumerate}
 		
+		ISPs stellen die eigentlichen Verbindungen bereit, über die ein Datenaustausch zwischen Hosts möglich gemacht wird. ISPs bzw. deren Leitungen können sich auch geographisch überschneiden.
 	\end{frame}
 	
 	\begin{frame}{IXP}
+		Beim Datenaustausch über das Internet kann es passieren, dass Sender und Empfänger nicht vom selben ISP versorgt werden. Die Daten müssen daher irgendwo an einen anderen ISP übergeben werden. In diesem Fall müssen ISPs die Anderen für diesen Transfer bezahlen. Dafür haben sie meist Verträge mit anderen (normalerweise größeren ISPs wie der Telekom), um die Daten kostengünstig übertragen zu können. Tier-1-ISPs stellen sich Verbindungen untereinander häufig sogar kostenlos zur Verfügung.
 		
+		Eine der größten IXPs (\enquote{Internet Exchange Point}) Deutschlands befindet sich in Frankfurt/Main, der es in Bezug auf den BND/NSA-Skandal schon häufiger in die Nachrichten geschafft hat.
 	\end{frame}
 	
 	\begin{frame}{Sonstige Netze}
-		
+		Andere Netzwerke, wie z.B. zwischen Universitäten oder Intranets großer Energieversorger besitzen ihre eigene, teilweise weltumspannende Infrastruktur (\enquote{Intranet}), die genauso aufgebaut ist, wie das \enquote{allgemeine} Internet, jedoch nur innerhalb dieser Firmen erreichbar ist.
 	\end{frame}
 	
 	\subsection{Kommunikation}
 	\begin{frame}{Webdienste}
-		
+		Webdienste sind Programme im Internet, auf die von einem beliebigen Rechner aus zugegriffen werden kann. Diese Programme werden auf einem oder mehreren vernetzten Computern (einem \enquote{verteilten System}) ausgeführt. Dabei kann es sich um Webseiten, Datenbanken o.Ä. handeln. Die Hostcomputer sind unter einer (oder mehreren) Internetadressen zu erreichen. Normalerweise wird ein Dienst aber nur über eine einzige URL aufgerufen.
 	\end{frame}
 	
 	\begin{frame}{DNS}
-		
+		DNS (Domain Name Service)-Dienste dienen als Adressbuch im Internet und sind allgemein bekannt. Sie lösen Adressen wie bspw. \url{https://netzpolitik.org//} in korrespondierende IP-Adressen auf (hier 91.102.13.28). Dem Client muss mindestens ein DNS-Dienst bekannt sein, um eine Verbindung zum Internet aufbauen zu können. Diese verweist meistens auf den Provider und wird im oftmals mitgelieferten Router festgelegt. Clients im WLAN des Routers haben für gewöhnlich die Adresse des Routers als DNS- bzw. Gateway-Adresse.
 	\end{frame}
 	
 	\begin{frame}{Webclients}
-		
+		Webclients sind die Schnittstelle zwischen Nutzer und Internet. Bekannteste Clients sind Webbrowser. Sie fordern Daten von Webservern an und stellen die Antwortdaten für den Nutzer übersichtlich dar und bieten weitere Interaktionsmöglichkeiten mit Webdiensten.
 	\end{frame}
 	
 	\begin{frame}{Aufruf einer Webseite}
-		
+		Webseiten werden über die IP-Adresse des hostenden Servers angefordert. Um den Aufruf von Webseiten zu vereinfachen, werden stattdessen URLs verwendet (z.B. \url{https://www.privacy-handbuch.de/}). Diese können entweder direkt in das Adressenfeld des Browsers eingetragen oder über Links aufgerufen werden, die normalerweise in blauer Schrift und unterstrichen dargestellt werden.
+	\end{frame}
+
+	\begin{frame}{Aufruf einer Webseite II}
+		Der Browser ruft zunächst einen DNS-Dienst auf. Dieser ist in der Konfiguration der Internetverbindung angegeben. Der Dienst kann die Anfrage an viele weitere DNS-Dienste weiterleiten, bis einer der Dienste die passende IP-Adresse zu dieser URL kennt.
+		DNS-Dienste sind hierarchisch aufgebaut. So gibt es eigene DNS-Dienste für alle Adressen, die auf .de enden. Für die oben angegebene Adresse würde dann der Eintrag \enquote{privacy-handbuch.de} gesucht.
+	\end{frame}
+
+	\begin{frame}{Aufruf einer Webseite III}
+		Für die Adresse, die daraufhin zurückgegeben wird  (in unserem Fall die IPv6-Adresse 2a01:238:20a:202:1078:0000:0000), könnte wieder ein DNS-Dienst verfügbar sein, unter dem die Subdomain www.privacy-handbuch.de abgefragt wird. Hier wird dann die IPv4-Adresse 81.169.145.78 geliefert. Ob hier Unterseiten eine andere IP-Adresse haben oder sogar verschiedene IP-Adressen für die gleichen Unterseiten existieren, kommt auf die Netzwerkstruktur des Webdienstes an. Für das oben genannte Beispiel gibt es nur die Subdomain www.privacy-handbuch.de, die auch unter privacy-handbuch.de erreichbar ist.
+	\end{frame}
+
+	\begin{frame}{Aufruf einer Webseite IV}
+		Die Anfrage an einen Webserver enthält die angefragte Datei, z.B. https://www.privacy-handbuch.de/index.htm oder https://www.privacy-handbuch.de/handbuch\_11.htm sowie die eigene IP-Adresse, zu der die Antwortdaten gesendet werden sollen.
+		Die Antwort enthält Verweise auf alle benötigten Dateien, die zum Darstellen der Webseite erforderlich sind. Diese Dateien werden häufig erst kurz vorher durch den Server generiert, um die Webseite an den Benutzer anzupassen.
+	\end{frame}
+
+	\begin{frame}{Aufruf einer Webseite V}
+		Der Webclient lädt alle erforderlichen Dateien herunter und bindet sie, wie in der     index.htm-Datei beschrieben, auf der Webseite ein. Anschließend wird die handbuch.css-Datei ausgewertet, die erweiterte Informationen zur Darstellung der Webseite bereitstellt. Manchmal werden auch Skripte eingebunden, mit denen die Seite oft auch ohne erneute Anfrage an den Webserver mit dem Nutzer interagieren kann. Wurde alles geladen und ausgewertet, so wird die Webseite angezeigt.
 	\end{frame}
 	
 	\section{Gefahren im Netz}
@@ -219,7 +260,7 @@
 			\item[Privaconf]{https://addons.mozilla.org/de/firefox/addon/privaconf/}
 			\item[Cookie-Controller]{https://addons.mozilla.org/de/firefox/addon/cookie-controller/}
 			\item[Canvasblocker]{https://addons.mozilla.org/de/firefox/addon/canvasblocker/}
-			\item[no-rescue-uri-leak]{https://addons.mozilla.org/de/firefox/addon/no-resource-uri-leak/}
+			\item[no-resource-uri-leak]{https://addons.mozilla.org/de/firefox/addon/no-resource-uri-leak/}
 			\item[UserAgentChanger]{Nicht benutzen!}
 		\end{description}
 	\end{frame}
