@@ -188,9 +188,51 @@
 	\end{frame}
 
 	\subsection{Phishing}
+	\begin{frame}
+		Als Phishing bezeichnet man den Versuch, an persönliche Daten eines Opfers zu gelangen, indem man ihn auf gefälschte Webseiten leitet, ihm falsche E-Mails oder Kurznachrichten sendet.
+		Opfer eines solchen Angriffes ist wahrscheinlich schon jeder einmal gewesen, der im Web unterwegs war. Angriffe reichen von sehr plumpen Versuchen wie \enquote{Sie sind der 1.000.000. Benutzer, holen sie sich hier ihren Gewinn ab.} bis zu aufwändig gestalteten E-Mails, dass man mal eben online bei seiner Bank eine verdächtige Aktivität überprüfen soll, damit kein Geld verloren geht.
+	\end{frame}
+
+	\begin{frame}
+		Wie einfach es ist, einen solchen Angriff zu starten, möchte ich nun vorführen.
+	\end{frame}
 	
+	\begin{frame}{Abwehr von Phishing-Attacken}
+		Die eben erstellte Webseite unterscheidet sich von der originalen Webseite in folgenden Eigenschaften:		
+		\begin{description}
+			\item[URL] {In der Live-Demo hatte ich keine Zeit, eine richtige Domain für meine Webseite zu registrieren. Hätte ich diese gehabt, so hätte ich eine genommen, die der originalen zum Verwechseln ähnlich sieht, z.B. gooogle.de statt google.de.
+			Die Domain ist teil der URL, die oben im Browser steht.
+			Hier wäre es einfach zu durchschauen, dass die Seite nicht echt ist - schließlich steht hier nur eine einfache IP-Adresse.}
+		\end{description}
+	\end{frame}
+
+	\begin{frame}{Abwehr von Phishing-Attacken II}
+		\begin{description}
+			\item[TLS-Verschlüsselung] {In der Live-Demo hatte ich ebenfalls keine Zeit, mir ein Zertifikat für meinen Server zu besorgen. Dieses sorgt dafür, dass die Verbindung mittels TLS verschlüsselt und über die Zertifizierungsstelle authorisiert ist. Kurz gesagt, dass sichergestellt ist, dass die Webseite die ist, für die sie sich ausgibt und die Verbindung stets verschlüsselt und nicht durch andere manipulierbar ist. Dies erkennt man an dem Schlosssymbol und der grün hinterlegten URL des Browsers.}			
+		\end{description}
+	\end{frame}
+	
+	\begin{frame}{Abwehr von Phishing-Attacken III}
+		Möchte man sichergehen, dass das Zertifikat einer Webseite vertrauenswürdig ist, so muss man sich die URL und das Zertifikat selbst genau ansehen. Ein Klick auf das Schlosssymbol sollte dies in jedem Browser ermöglichen.
+		Im Zertifikat muss der korrekte Name der Firma stehen, die die Seite betreibt und die URL muss genau die sein, die man erwartet. Fast jede große und bekannte Webseite stellt ihre Identitätsdaten im Zertifikat zur Verfügung.
+	\end{frame}
+	
+	\begin{frame}{Abwehr von Phishing-Attacken IV}
+		\begin{description}
+			\item[Verhalten] {Die Webseite verhält sich anders, als die normale. Gibt man beispielsweise seine Zugangsdaten ien, so wird man nicht eingeloggt, sondern landet wieder auf der (diesmal originalen) Login-Seite des Anbieters. Wenn man das bemerkt, ist es allerdings schon zu spät.}
+		\end{description}
+	\end{frame}
+	
+	\begin{frame}{Zusammenfassung}
+		Grundsätzlich können Phishing-Attacken durch etwas Misstrauen im Netz leicht abgewehrt werden. Erwarte ich eine Mail von diesem Anbieter? Würde mir ein Anwalt so etwas wirklich per Mail schicken? Wäre wirklich jemand so großzügig, mir das neueste iPhone einfach so zu schenken?
+		
+		Ist dieser Test bestanden, so gibt es eine weitere Möglichkeit, Phishing zu verhindern: Bekomme ich eine sehr echt aussehende Mail von meiner Bank, so drücke ich auf gar keinen Fall irgendeinen Link darin. Stattdessen mache ich den Browser selbst auf und logge mich in der mir bekannten Webseite der Bank selbst ein. Idealerweise habe ich für solch wichtige Webseiten sowieso ein Lesezeichen gesetzt.
+	\end{frame}
 	
 	\subsection{Ausnutzen von Schwachstellen}
+	\begin{frame}
+		Deutlich schwieriger abzuwehren sind solche Angriffe, die Schwachstellen der Internetseite selbst, des Browsers oder sonstige Programme des Computers ausnutzen.
+	\end{frame}
 	
 	\subsection{Tracking}
 	\subsubsection{Datenschutz}
