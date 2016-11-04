@@ -80,7 +80,7 @@
 	\subsection{Aufbau des Internets}
 	\begin{frame}{Das wichtigste zuerst}
 		\begin{itemize}
-			\item Internet ist keine Wolke!
+			\item Das Internet ist keine Wolke!
 			\item Alles wird von Computern gesteuert.
 			\item Jeder Computer gehört jemandem.
 			\item Jeder verfolgt eigene Interessen.
@@ -138,22 +138,36 @@
 		\centering \huge \textbf{Gefahren im Netz}
 	\end{frame}
 	
-	\begin{frame}
-		Das Internet wurde ursprünglich unter der Prämisse gebaut, dass nur wenige Menschen in der Lage sein werden, es zu nutzen. Die ursprüngliche Zielgruppe bestand hauptsächlich aus Forschern, die ihre Studien mit anderen Universitäten oder auch innerhalb einer Universität austauschen wollen.
+	\begin{frame}{Mangelnde Sicherheitsstandards - Infrastruktur}
+		\alert{Die Protokolle und die Infrastruktur des Internets sind sehr alt!}
 		
-		Es wurde daher kaum auf eine sichere Infrastruktur wert gelegt und die Protokolle von heute entsprechen immer noch denen von damals. Sicherheitsstrukturen wurden erst nachträglich eingebaut und erinnern eher an Flicken.
+		\begin{itemize}
+			\item Ursprüngliche Protokolle sahen kaum Bedarf für Internetsicherheit
+			\item Daher keine Authentifizierungs- oder Verschlüsselungsmechanismen
+			\item Heutige Sicherheitstechniken wurden nachträglich implementiert und sitzen eher \enquote{oben auf}.
+		\end{itemize}
+	
+		\begin{block}{Entwicklung des WWW}
+			Das Web wurde ursprünglich für Forscher entwickelt, die ihre Studienergebnisse untereinander austauschen wollten. Erst durch die allmähliche Verbreitung über den Globus erkannte man, dass gewisse Sicherheitsstandards eingehalten werden mussten.
+		\end{block}		
 	\end{frame}
 
-	\begin{frame}
-		Zusätzlich zu der löchrigen Infrastruktur des Internets werden auch viele Webdienste im Internet stümperhaft programmiert. Diese Kombination führt zu allerlei Gefahren im Internet, denen man sich als normaler Nutzer oftmals nicht bewusst ist.
-		
-		Genau um diese Gefahren soll es nun gehen.
+	\begin{frame}{Mangelnde Sicherheitsstandards - Software}
+		Nicht nur die Infrastruktur weißt Lücken auf. Selbst aktuellste Software wird teilweise stümperhaft programmiert.
+		\begin{itemize}
+			\item Schlechte Programmierung ist kaum mit mangelnden Standards zu erklären.
+			\item Software soll immer schneller mit weniger Aufwand produziert werden.
+			\item Software wird immer komplexer.
+			\item Politik hat sich gewandelt. Software ist nun eher ein Service als ein Produkt.
+		\end{itemize}
 	\end{frame}
 
 	\begin{frame}{Übersicht der Gefahren im Netz}
-		Unabhängig von der Art der Schwachstelle ist die Hauptgefahr immer die selbe: Dass Daten in die falschen Hände geraten. Solche Daten könnten z.B. Bank-, Login-, oder Adressdaten sowie allgemeine persönliche Daten sein. 
+		\begin{block}{Was wollen Angreifer?}
+			Unabhängig von der Art der Schwachstelle ist die Hauptgefahr fast immer dieselbe: Dass Daten in die falschen Hände geraten. Solche Daten könnten z.B. Bank-, Login-, oder Adressdaten sowie allgemeine persönliche Daten sein. Ein anderes Ziel ist die Nutzung der Infrastruktur bspw. für Botnetze.
+		\end{block}
 		
-		Es gibt zudem viele Wege, wie man als Angreifer an solche Informationen gelangen kann:
+		Es gibt viele Wege, wie man als Angreifer an solche Informationen gelangen kann:
 		\begin{enumerate}
 			\item Phishing
 			\item Ausnutzen von Schwachstellen
@@ -163,44 +177,52 @@
 
 	\subsection{Phishing}
 	\begin{frame}
-		Als Phishing bezeichnet man den Versuch, an persönliche Daten eines Opfers zu gelangen, indem man ihn auf gefälschte Webseiten leitet, ihm falsche E-Mails oder Kurznachrichten sendet.
-		Opfer eines solchen Angriffes ist wahrscheinlich schon jeder einmal gewesen, der im Web unterwegs war. Angriffe reichen von sehr plumpen Versuchen wie \enquote{Sie sind der 1.000.000. Benutzer, holen sie sich hier ihren Gewinn ab.} bis zu aufwändig gestalteten E-Mails, dass man mal eben online bei seiner Bank eine verdächtige Aktivität überprüfen soll, damit kein Geld verloren geht.
+		\begin{block}{Was ist Phishing?}
+			Phishing ist der Versuch, Daten zu stehlen, indem sich ein Angreifer das Vertrauen des Opfers erschleicht, indem er sich für eine vertrauenswürdige Kontaktperson ausgibt.
+		\end{block}
+		
+		\begin{itemize}
+			\item gefälschte E-Mails
+			\item gefälschte Webseiten
+			\item gefälschte Nachrichten
+		\end{itemize}
+	
+		\alert{Ziele sind die eben genannten Daten der Opfer.}		
 	\end{frame}
 
-	\begin{frame}
-		Wie einfach es ist, einen solchen Angriff zu starten, möchte ich nun vorführen.
+	\begin{frame}{Live-Demo}
+		\begin{itemize}
+			\item Phishing-Angriffe sind recht einfach
+			\item Einfache Angriffe funktionieren vor allem bei Massenangriffen gut
+			\item Gezielte Attacken setzen viel Vorwissen über das Opfer voraus
+		\end{itemize}
+	
+		\begin{exampleblock}{Beispiel: Studentenfischen}
+			Ich zeige nun, wie wir uns Zugriff auf Studentenlogins verschaffen könnten.
+		\end{exampleblock}
 	\end{frame}
 	
 	\begin{frame}{Abwehr von Phishing-Attacken}
-		Die eben erstellte Webseite unterscheidet sich von der originalen Webseite in folgenden Eigenschaften:		
-		\begin{description}
-			\item[URL] {In der Live-Demo hatte ich keine Zeit, eine richtige Domain für meine Webseite zu registrieren. Hätte ich diese gehabt, so hätte ich eine genommen, die der originalen zum Verwechseln ähnlich sieht, z.B. gooogle.de statt google.de.
-			Die Domain ist teil der URL, die oben im Browser steht.
-			Hier wäre es einfach zu durchschauen, dass die Seite nicht echt ist - schließlich steht hier nur eine einfache IP-Adresse.}
-		\end{description}
+		\begin{alertblock}{Entwarnung(?)}
+			Phishing-Seiten unterscheiden sich von realen Seiten!
+		\end{alertblock}
+	
+		Vor allem wegen der kurzen Zeit unterscheidet sich die falsche Seite von der realen in folgenden Punkten:
+		\begin{enumerate}
+			\item URL
+			\item Verschlüsselung / Zertifikat
+			\item Verhalten
+		\end{enumerate}		
 	\end{frame}
-
+	
 	\begin{frame}{Abwehr von Phishing-Attacken II}
-		\begin{description}
-			\item[TLS-Verschlüsselung] {In der Live-Demo hatte ich ebenfalls keine Zeit, mir ein Zertifikat für meinen Server zu besorgen. Dieses sorgt dafür, dass die Verbindung mittels TLS verschlüsselt und über die Zertifizierungsstelle authorisiert ist. Kurz gesagt, dass sichergestellt ist, dass die Webseite die ist, für die sie sich ausgibt und die Verbindung stets verschlüsselt und nicht durch andere manipulierbar ist. Dies erkennt man an dem Schlosssymbol und der grün hinterlegten URL des Browsers.}			
-		\end{description}
-	\end{frame}
-	
-	\begin{frame}{Abwehr von Phishing-Attacken III}
-		Möchte man sichergehen, dass das Zertifikat einer Webseite vertrauenswürdig ist, so muss man sich die URL und das Zertifikat selbst genau ansehen. Ein Klick auf das Schlosssymbol sollte dies in jedem Browser ermöglichen.
-		Im Zertifikat muss der korrekte Name der Firma stehen, die die Seite betreibt und die URL muss genau die sein, die man erwartet. Fast jede große und bekannte Webseite stellt ihre Identitätsdaten im Zertifikat zur Verfügung.
-	\end{frame}
-	
-	\begin{frame}{Abwehr von Phishing-Attacken IV}
-		\begin{description}
-			\item[Verhalten] {Die Webseite verhält sich anders, als die normale. Gibt man beispielsweise seine Zugangsdaten ein, so wird man nicht eingeloggt, sondern landet wieder auf der (diesmal originalen) Login-Seite des Anbieters. Wenn man das bemerkt, ist es allerdings schon zu spät.}
-		\end{description}
-	\end{frame}
-	
-	\begin{frame}{Zusammenfassung}
-		Grundsätzlich können Phishing-Attacken durch etwas Misstrauen im Netz leicht abgewehrt werden. Erwarte ich eine Mail von diesem Anbieter? Würde mir ein Anwalt so etwas wirklich per Mail schicken? Wäre wirklich jemand so großzügig, mir das neueste iPhone einfach so zu schenken?
-		
-		Ist dieser Test bestanden, so gibt es eine weitere Möglichkeit, Phishing zu verhindern: Bekomme ich eine sehr echt aussehende Mail von meiner Bank, so drücke ich auf gar keinen Fall irgendeinen Link darin. Stattdessen mache ich den Browser selbst auf und logge mich in der mir bekannten Webseite der Bank selbst ein. Idealerweise habe ich für solch wichtige Webseiten sowieso ein Lesezeichen gesetzt.
+		\alert{Was man tun kann:}
+		\begin{enumerate}
+			\item Misstrauisch sein \& Nachdenken!
+			\item Links mit dem Mouse-Hover-Test prüfen, bevor man sie anklickt.
+			\item URL prüfen.
+			\item Im Falle von E-Mails den vermeintlichen Sender selbst noch einmal kontaktieren (nicht über angebotene Links!).
+		\end{enumerate}
 	\end{frame}
 	
 	\subsection{Ausnutzen von Schwachstellen}
@@ -251,32 +273,41 @@
 		Noch ein Tip: Webseiten können auch alle Plugins sehen, die verwendet werden und darauf entsprechend reagieren.}
 	\end{description}
 \end{frame}
+	
 	\subsection{Datenschutz}
 	\begin{frame} 
 		\begin{itemize}
 			\item{\enquote{Privacy protects us from abuses by those in power, even if we’re doing nothing wrong at the time of surveillance.}
 				
-			-- \emph{Bruce Schneier}}
+				-- \emph{Bruce Schneier}}
 			\item Welche Daten werden für welchen Verwendungszweck wo erhoben, wie verarbeitet und an wen weitergegeben?
+			
+			
+			
 			\item Tradeoff: Privatsphäre vs. Useability
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}{Spielregeln}
 		\begin{itemize}
+			
+			
 			\item personenbezogenen Daten
 			\item Verwendung
 			\item notwendigen und freiwilligen Angaben
 			\item Aufklärung über etwaige Nachteile
 			\item Einwilligung
+			
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}{Rechte}
 		\begin{itemize}
 			\item Informationelle Selbstbestimmung
+			
 			\item Recht auf Auskunft
 			\item Recht auf Berichtigung
+			
 			\item Recht auf Löschung
 		\end{itemize}
 	\end{frame}
@@ -284,6 +315,8 @@
 	\begin{frame}{Praxis: Internet}
 		\begin{itemize}
 			\item viele Länder, viele Gesetze
+			
+			
 			\item Welche Daten personenbezogen sind
 			\item viele Spuren beim Surfen ermöglichen zuordnung
 			\note{Welche Techniken des Trackings werden beim genutzt?}
@@ -303,7 +336,7 @@
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
-
+	
 	\begin{frame}{Tracking beim Verbindungsaufbau II}
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{Abbildungen/trackography.png}
@@ -311,7 +344,7 @@
 			\caption{Verbindungen im Allgemeinen}
 		\end{figure}
 	\end{frame}
-
+	
 	\begin{frame}{Tracking beim Verbindungsaufbau III}
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{Abbildungen/webbeacons.png}
@@ -319,7 +352,7 @@
 			\caption{Social-media-like-buttons}
 		\end{figure}
 	\end{frame}
-
+	
 	
 	\begin{frame}{Tracking durch verräterischen Browser I}
 		\begin{itemize}
@@ -336,14 +369,14 @@
 			\label{fig:url shortener}
 		\end{figure}
 	\end{frame}
-
+	
 	\begin{frame}{Tracking durch verräterischen Browser III}
 		\begin{figure}[V]
 			\includegraphics[scale=0.5]{Abbildungen/lightbeam.png}
 			\label{fig:lightbeam}
 		\end{figure}
 	\end{frame}
-
+	
 	\begin{frame}{Tracking durch verräterischen Browser IV}
 		\begin{figure}[V]
 			\includegraphics[scale=0.25]{Abbildungen/panopticlick.png}
@@ -353,12 +386,12 @@
 	
 	\subsubsection{\enquote{Angewandter Datenschutz} im Internet}
 	
-		\begin{frame}{Todo-Platzhalter}
-			\begin{itemize}
-				\item sicherheitsrelevante Ratschläge einbauen
-
-			\end{itemize}
-		\end{frame}
+	\begin{frame}{Todo-Platzhalter}
+		\begin{itemize}
+			\item sicherheitsrelevante Ratschläge einbauen
+			
+		\end{itemize}
+	\end{frame}
 	
 	\section{Counterstrike}
 	\begin{frame}
@@ -425,7 +458,6 @@
 	% - *Höchstens* drei Unterabschnitte pro Abschnitt.
 	% - Pro Rahmen sollte man zwischen 30s und 2min reden. Es sollte also
 	%   15 bis 30 Rahmen geben.
-	
 	
 \end{document}
 
