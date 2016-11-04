@@ -87,13 +87,6 @@
 		\end{itemize}		
 	\end{frame}
 	
-	\begin{frame}{Wer hängt zwischen mir und der Webseite?}
-		\begin{figure}[H]
-			\includegraphics[width=\textwidth]{Abbildungen/Uebersicht_Internet}
-			\label{fig:Übersicht des Internets}
-		\end{figure}
-	\end{frame}	
-	
 	\begin{frame}{Woraus besteht das Web?}
 		\begin{enumerate}
 			\item Webdienste
@@ -108,38 +101,35 @@
 			\item Bekannteste Dienste sind Webseiten
 			\item Cloudspeicher, Handyapps, Navigation, Streaminganbieter sind ebenfalls Webdienste
 			\item Webdienste sind über IP-Adressen zu erreichen
-		\end{itemize}
-		Webdienste sind Programme im Internet, auf die von einem beliebigen Rechner aus zugegriffen werden kann. Diese Programme werden auf einem oder mehreren vernetzten Computern (einem \enquote{verteilten System}) ausgeführt. Dabei kann es sich um Webseiten, Datenbanken o.Ä. handeln. Die Hostcomputer sind unter einer (oder mehreren) Internetadressen zu erreichen. Normalerweise wird ein Dienst aber nur über eine einzige URL aufgerufen.
-	\end{frame}
-	
-	\begin{frame}{DNS}
-		DNS (Domain Name Service)-Dienste dienen als Adressbuch im Internet und sind allgemein bekannt. Sie lösen Adressen wie bspw. \url{https://netzpolitik.org//} in korrespondierende IP-Adressen auf (hier 91.102.13.28). Dem Client muss mindestens ein DNS-Dienst bekannt sein, um eine Verbindung zum Internet aufbauen zu können. Diese verweist meistens auf den Provider und wird im oftmals mitgelieferten Router festgelegt. Clients im WLAN des Routers haben für gewöhnlich die Adresse des Routers als DNS- bzw. Gateway-Adresse.
+			\item IP-Adressen kann sich aber keiner merken, deswegen werden normalerweise URLs verwendet.
+		\end{itemize}		
 	\end{frame}
 	
 	\begin{frame}{Webclients}
-		Webclients sind die Schnittstelle zwischen Nutzer und Internet. Bekannteste Clients sind Webbrowser. Sie fordern Daten von Webservern an und stellen die Antwortdaten für den Nutzer übersichtlich dar und bieten weitere Interaktionsmöglichkeiten mit Webdiensten.
+		\begin{itemize}
+			\item Schnittstelle zwischen Nutzer und Internet
+			\item Bekannteste Clients sind Webbrowser
+			\item Clients stellen Daten von Webservern übersichtlich dar und bieten Interaktionsmöglichkeiten mit dem Server
+		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}{Aufruf einer Webseite}
-		Webseiten werden über die IP-Adresse des hostenden Servers angefordert. Um den Aufruf von Webseiten zu vereinfachen, werden stattdessen URLs verwendet (z.B. \url{https://www.privacy-handbuch.de/}). Diese können entweder direkt in das Adressenfeld des Browsers eingetragen oder über Links aufgerufen werden, die normalerweise in blauer Schrift und unterstrichen dargestellt werden.
+	\begin{frame}{DNS}
+		\begin{itemize}
+			\item DNS (Domain Name Service) dient als eine Art Telefonbuch des Internets
+			\item Wandelt Domains in URLs in IP-Adressen um
+			\item Jeder Computer, der mit dem Internet kommunizieren möchte, muss mindestens einen DNS kennen.
+		\end{itemize}
+	
+		\begin{figure}[H]
+			\includegraphics[width=0.35\textwidth]{Abbildungen/Browser_DNS_Server_Communication}
+		\end{figure}				
 	\end{frame}
-
-	\begin{frame}{Aufruf einer Webseite II}
-		Der Browser ruft zunächst einen DNS-Dienst auf. Dieser ist in der Konfiguration der Internetverbindung angegeben. Der Dienst kann die Anfrage an viele weitere DNS-Dienste weiterleiten, bis einer der Dienste die passende IP-Adresse zu dieser URL kennt.
-		DNS-Dienste sind hierarchisch aufgebaut. So gibt es eigene DNS-Dienste für alle Adressen, die auf .de enden. Für die oben angegebene Adresse würde dann der Eintrag \enquote{privacy-handbuch.de} gesucht.
-	\end{frame}
-
-	\begin{frame}{Aufruf einer Webseite III}
-		Für die Adresse, die daraufhin zurückgegeben wird  (in unserem Fall die IPv6-Adresse 2a01:238:20a:202:1078:0000:0000), könnte wieder ein DNS-Dienst verfügbar sein, unter dem die Subdomain www.privacy-handbuch.de abgefragt wird. Hier wird dann die IPv4-Adresse 81.169.145.78 geliefert. Ob hier Unterseiten eine andere IP-Adresse haben oder sogar verschiedene IP-Adressen für die gleichen Unterseiten existieren, kommt auf die Netzwerkstruktur des Webdienstes an. Für das oben genannte Beispiel gibt es nur die Subdomain www.privacy-handbuch.de, die auch unter privacy-handbuch.de erreichbar ist.
-	\end{frame}
-
-	\begin{frame}{Aufruf einer Webseite IV}
-		Die Anfrage an einen Webserver enthält die angefragte Datei, z.B. https://www.privacy-handbuch.de/index.htm oder https://www.privacy-handbuch.de/handbuch\_11.htm sowie die eigene IP-Adresse, zu der die Antwortdaten gesendet werden sollen.
-		Die Antwort enthält Verweise auf alle benötigten Dateien, die zum Darstellen der Webseite erforderlich sind. Diese Dateien werden häufig erst kurz vorher durch den Server generiert, um die Webseite an den Benutzer anzupassen.
-	\end{frame}
-
-	\begin{frame}{Aufruf einer Webseite V}
-		Der Webclient lädt alle erforderlichen Dateien herunter und bindet sie, wie in der     index.htm-Datei beschrieben, auf der Webseite ein. Anschließend wird die handbuch.css-Datei ausgewertet, die erweiterte Informationen zur Darstellung der Webseite bereitstellt. Manchmal werden auch Skripte eingebunden, mit denen die Seite oft auch ohne erneute Anfrage an den Webserver mit dem Nutzer interagieren kann. Wurde alles geladen und ausgewertet, so wird die Webseite angezeigt.
+	
+	\begin{frame}{Wer hängt zwischen mir und der Webseite?}
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{Abbildungen/Uebersicht_Internet}
+			\label{fig:Übersicht des Internets}
+		\end{figure}
 	\end{frame}
 	
 	\section{Gefahren im Netz}
@@ -373,9 +363,9 @@
 			\end{itemize}
 		\end{frame}
 	
-	\section{Counterstrike GO}
+	\section{Counterstrike}
 	\begin{frame}
-		\centering \huge \textbf{Counterstrike Go!}
+		\centering \huge \textbf{Counterstrike}
 	\end{frame}
 	\subsection{Verhalten im Netz}
 	\begin{frame}{Verhalten im Netz}
