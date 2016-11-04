@@ -6,7 +6,7 @@
 %hierbei handelt es sich um die Präsentation imt .tex-Format
 %Abbildungen etc. müssen entsprechend in eigenen Unterordnern präsent sein!
 
-\documentclass[hyperref={colorlinks,linkcolor=blue}, utf8]{beamer}
+\documentclass[hyperref={colorlinks,linkcolor=white}, utf8]{beamer}
 
 \mode<presentation>
 {
@@ -386,19 +386,25 @@
 	
 	\subsubsection{\enquote{Angewandter Datenschutz} im Internet}
 	
-	\begin{frame}{Todo-Platzhalter}
-		\begin{itemize}
-			\item sicherheitsrelevante Ratschläge einbauen
-			
-		\end{itemize}
-	\end{frame}
-	
 	\section{Counterstrike}
 	\begin{frame}
 		\centering \huge \textbf{Counterstrike}
 	\end{frame}
-	\subsection{Verhalten im Netz}
-	\begin{frame}{Verhalten im Netz}
+	
+	
+	\subsection{Verhalten im Netz und technische Hilfsmittel}
+		\begin{frame}{Sicherheitsmaßnahmen}
+			\begin{itemize}
+				\item Software aktuell halten
+				\item URLs vor dem Klicken überprüfen
+				\item JavaScript u. Flash im Ausnahmefall erlauben
+				\item Nachladen von Schriften deaktivieren
+				\item verschiede Passwörter nutzen
+				\item keine komischen Sachen runterladen und ausführen
+			\end{itemize}
+		\end{frame}
+	
+	\begin{frame}{Datenschutzmaßnahmen}
 		\begin{itemize}
 			\item Datensparsamkeit
 			\begin{itemize}
@@ -408,14 +414,18 @@
 			\end{itemize}
 			\item Kostenlose Dienste hinterfragen
 			\begin{itemize}
-				\item Suchmaschinen: duckduckgo.com
-				\item Email: mailbox.org / poesto.de
-				\item Cloud: wenn dann verschlüsselt
+				\item Suchmaschinen: \url{https://duckduckgo.com}
+				\item Email: \url{https://mailbox.org}, \url{https://poesto.de}
+				\item Cloud: verschlüsselt und oder selbst betreiben
 			\end{itemize}
+			\item auf HTTPS achten
+			\item Cookies verbieten, Ausnahmen erlauben
+			\item Verlauf und Cache sitzungsweise löschen lassen
+			\item JavaScript u. Flash deaktivieren
+			\item Plugins deaktivieren
 		\end{itemize}
 	\end{frame}
 	
-	\subsection{Technische Hilfsmittel}
 	\begin{frame}{Addons Firefox}
 		\noindent
 		\begin{description}
@@ -423,6 +433,7 @@
 			\item[Cookie-Controller] \url{https://addons.mozilla.org/de/firefox/addon/cookie-controller/}
 			\item[Canvasblocker] \url{https://addons.mozilla.org/de/firefox/addon/canvasblocker/}
 			\item[no-resource-uri-leak] \url{https://addons.mozilla.org/de/firefox/addon/no-resource-uri-leak/}
+			\item[No-Script] \url{https://addons.mozilla.org/en-US/firefox/addon/noscript/}
 			\item[UserAgentChanger]{... Finger weg!}
 		\end{description}
 	\end{frame}
@@ -441,10 +452,11 @@
 			\noindent
 			\begin{itemize}
 				\item Browserfingerprinting \href{https://panopticlick.eff.org}{panopticlick.eff.org}
-				\item \href{https://sec.hpi.de/vulndb/sd_first/}{Browser-Sicherheits-Check}
-				\item Nachrichtenlesen: \href{https://trackography.org/}{Visualisierung von Trackern}
-				\item \href{https://www.mbem.nrw/unterwegs-im-oeffentlichen-wlan-aber-gut-geschuetzt}{Ratgeber fürs Surfen im öffentlichem WLAN }
-				\item Alles, was wir wissen, wissen wir vom \href{https://privacy-handbuch.de/}{privacy Handbuch}
+				\item Hasso-Plattner-Institut: \href{https://sec.hpi.de/vulndb/sd_first/}{Browser-Sicherheits-Check}
+				\item Online-Nachrichten: \href{https://trackography.org/}{Visualisierung von Trackern}
+				\item Ratgeber: \href{https://www.mbem.nrw/unterwegs-im-oeffentlichen-wlan-aber-gut-geschuetzt}{Surfen im öffentlichem WLAN }
+				\item Nachschlagewerk zum Tracking: \href{https://privacy-handbuch.de/}{privacy Handbuch}
+				\item \url{https://download.terminal21.de/workshops/}
 			\end{itemize}
 		\end{frame}
 	
