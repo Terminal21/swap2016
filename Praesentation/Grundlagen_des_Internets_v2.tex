@@ -77,68 +77,38 @@
 	\end{frame}
 	
 	\subsection{Aufbau des Internets}
-	\begin{frame}
-		Das Internet ist keinesfalls eine große Wolke, wie es manchmal genannt wird. Stattdessen wird alles, was wir sehen oder auch nicht sehen von Computern gesteuert, die jemandem mit eigenen Interessen gehören.
-		
-		Jedes Paket, welches durch das Internet von A nach B gesendet werden soll, muss eine ganze Reihe Computer bzw. Router durchqueren, die das Paket weiterleiten. Ist das Paket unverschlüsselt, könnte sich jeder dieses Paket ansehen.
+	\begin{frame}{Das wichtigste zuerst}
+		\begin{itemize}
+			\item Internet ist keine Wolke!
+			\item Alles wird von Computern gesteuert.
+			\item Jeder Computer gehört jemandem.
+			\item Jeder verfolgt eigene Interessen.
+			\item Es sind stets wesentlich mehr Personen beteiligt, als es scheint.				\item Daten, die sichtbar sind, werden gelesen.	
+		\end{itemize}		
 	\end{frame}
 	
-	\begin{frame}{Übersicht}
+	\begin{frame}{Wer hängt zwischen mir und der Webseite?}
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{Abbildungen/Uebersicht_Internet}
 			\label{fig:Übersicht des Internets}
-			\caption{Grundlegender Aufbau des Internets}
 		\end{figure}
-	\end{frame}
+	\end{frame}	
 	
-	\begin{frame}{Hosts}
-		Ein Host ist ein Rechner, der mit anderen Rechnern im Internet Daten austauscht. Hosts sind über die gesamte Welt verstreut und können PCs, Laptops, Handys oder IoT (Internet of Things)-Geräte sein.
-	\end{frame}
-	
-	\begin{frame}{\enquote{Letzte Meile}}
-		Als letzte Meile werden die Kupfer- (seltener Glasfaser-) oder Mobilfunkbrücken bezeichnet, mit denen Hosts mit den Netzwerkverteilern ihres Providers verbunden werden. Dieser Teil ist in der Praxis häufig der Flaschenhals für Internetverbindungen, da die Geschwindigkeit stark von der Länge dieser Verbindung und dem Typ der Verbindung abhängt. Je länger diese Strecke, desto langsamer ist die Internetverbindung.
-		Wenn vom Breitbandausbau geredet wird, ist damit meistens gemeint, mehr Netzwerkverteiler aufzustellen, um kürzere und somit schnellere Verbindungen zu den Hosts zu gewährleisten.		
-	\end{frame}
-
-	\begin{frame}{\enquote{Letzte Meile} II}
-		\begin{itemize}
-			\item{Bei Kupferleitungen (DSL) besitzt jeder Host eine eigene Leitung bis zum nächsten Verteiler, dem DSLAM. Diese haben eine relativ geringe Geschwindigkeit (ca. 16 Mbit, max. 64 Mbit).}
-			\item{Bei Glasfaserverbindungen teilt sich eine größere Gruppe von Hosts eine Leitung, die eine entsprechend hohe Kapazität zur Verfügung stellt. Der Nachteil ist, dass die Bandbreite abhängig von der Nutzung schwankt.}
-		\end{itemize}
-	\end{frame}
-	
-	\begin{frame}{PoP}
-		POPs (Point of Presence) sind Verbindungspunkte zwischen den Hosts und den ISPs und dienen als Netzwerkverteiler. Sie bilden die Brücke zwischen den schnellen Leitungen der ISPs und der letzten Meile der Hosts. Abhängig von den verwendeten Leitungen der letzten Meile müssen teilweise noch Übersetzungsgeräte (bspw. DSLAM [\enquote{Digital Subscriber Line Access Multiplexer}] dazwischengeschaltet werden, um die digitalen Signale des ISPs in analoge Signale umzuwandeln, die über das Kupferkabel gesendet werden können).
-		Dazu zählen auch Mobilfunkantennen bspw. für Edge (2G)-, UMTS / HSDPA (3G)- und LTE (4G)- Netze.
-	\end{frame}
-	
-	\begin{frame}{ISP}
-		ISPs besitzen eigene (Glasfaser-)Leitungen, die sich über einen geographischen Raum erstrecken und Knotenpunkte, die durch diese Leitungen verbunden werden. Diese Leitungen besitzen eine gigantische Übertragungskapazität und bestehen aus dicken Bündeln von Glasfaserkabeln, die bis zu 50GBit/s pro Kabel übertragen können.
-		ISPs werden abhängig von ihrer Größe in Tier 1, 2 und 3 unterschieden.
-	\end{frame}
-
-	\begin{frame}{ISP II}
+	\begin{frame}{Woraus besteht das Web?}
 		\begin{enumerate}
-			\item{Tier 3: Lokale Anbieter, die sich meist auf eine oder mehrere Städte begrenzen (z.B. \enquote{Muth Antennenbau} in Halle).}
-			\item{Tier 2: Überregionale Anbieter, die sich über Kontinente erstrecken können (z.B. \enquote{Tele Columbus AG}).} 
-			\item{Tier 1: Anbieter, die eine weltumspannende Infrastruktur besitzen (z.B. \enquote{AT\&T}, \enquote{Telekom}, \enquote{Orange}, uvm.).}
+			\item Webdienste
+			\item DNS
+			\item Provider
+			\item Clients / Hosts
 		\end{enumerate}
+	\end{frame}
 		
-		ISPs stellen die eigentlichen Verbindungen bereit, über die ein Datenaustausch zwischen Hosts möglich gemacht wird. ISPs bzw. deren Leitungen können sich auch geographisch überschneiden.
-	\end{frame}
-	
-	\begin{frame}{IXP}
-		Beim Datenaustausch über das Internet kann es passieren, dass Sender und Empfänger nicht vom selben ISP versorgt werden. Die Daten müssen daher irgendwo an einen anderen ISP übergeben werden. In diesem Fall müssen ISPs die Anderen für diesen Transfer bezahlen. Dafür haben sie meist Verträge mit anderen (normalerweise größeren ISPs wie der Telekom), um die Daten kostengünstig übertragen zu können. Tier-1-ISPs stellen sich Verbindungen untereinander häufig sogar kostenlos zur Verfügung.
-		
-		Eine der größten IXPs (\enquote{Internet Exchange Point}) Deutschlands befindet sich in Frankfurt/Main, der es in Bezug auf den BND/NSA-Skandal schon häufiger in die Nachrichten geschafft hat.
-	\end{frame}
-	
-	\begin{frame}{Sonstige Netze}
-		Andere Netzwerke, wie z.B. zwischen Universitäten oder Intranets großer Energieversorger besitzen ihre eigene, teilweise weltumspannende Infrastruktur (\enquote{Intranet}), die genauso aufgebaut ist, wie das \enquote{allgemeine} Internet, jedoch nur innerhalb dieser Firmen erreichbar ist.
-	\end{frame}
-	
-	\subsection{Kommunikation}
 	\begin{frame}{Webdienste}
+		\begin{itemize}
+			\item Bekannteste Dienste sind Webseiten
+			\item Cloudspeicher, Handyapps, Navigation, Streaminganbieter sind ebenfalls Webdienste
+			\item Webdienste sind über IP-Adressen zu erreichen
+		\end{itemize}
 		Webdienste sind Programme im Internet, auf die von einem beliebigen Rechner aus zugegriffen werden kann. Diese Programme werden auf einem oder mehreren vernetzten Computern (einem \enquote{verteilten System}) ausgeführt. Dabei kann es sich um Webseiten, Datenbanken o.Ä. handeln. Die Hostcomputer sind unter einer (oder mehreren) Internetadressen zu erreichen. Normalerweise wird ein Dienst aber nur über eine einzige URL aufgerufen.
 	\end{frame}
 	
