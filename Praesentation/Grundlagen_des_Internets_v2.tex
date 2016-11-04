@@ -1,3 +1,8 @@
+% Todo:
+% - ganz am Anfang ggf. Logos einbetten: https://download.terminal21.de/terminal21/logo/logo_aktuell_schwarz.svg
+% - anschauliche Linkliste
+% - ganz am Ende wäre ggf. ein Quellen-Nachweis aller Bilder schön
+
 %hierbei handelt es sich um die Präsentation imt .tex-Format
 %Abbildungen etc. müssen entsprechend in eigenen Unterordnern präsent sein!
 
@@ -29,9 +34,9 @@
 % weggelassen werden.
 \subject{Grundlagen des Internets v2}
 
-%Logo der MArtin-Luther Universität
-%\pgfdeclareimage[height=0.5cm]{Logo_Uni}{Abbildungen/Logo_Universitaet}
-%\logo{\pgfuseimage{Logo_Uni}}
+%Logo vom Terminal.21
+\pgfdeclareimage[height=1.0cm]{Logo_Terminal}{Abbildungen/Logo_Terminal}
+\logo{\pgfuseimage{Logo_Terminal}}
 
 % Folgendes sollte gelöscht werden, wenn man nicht am Anfang jedes
 % Unterabschnitts die Gliederung nochmal sehen möchte.
@@ -67,6 +72,10 @@
 	\end{frame}
 	
 	\section{Grundlagen des Internets}
+	\begin{frame}
+		\centering \huge \textbf{Grundlagen des Internets}
+	\end{frame}
+	
 	\subsection{Aufbau des Internets}
 	\begin{frame}
 		Das Internet ist keinesfalls eine große Wolke, wie es manchmal genannt wird. Stattdessen wird alles, was wir sehen oder auch nicht sehen von Computern gesteuert, die jemandem mit eigenen Interessen gehören.
@@ -165,6 +174,10 @@
 	
 	\section{Gefahren im Netz}
 	\begin{frame}
+		\centering \huge \textbf{Gefahren im Netz}
+	\end{frame}
+	
+	\begin{frame}
 		Das Internet wurde ursprünglich unter der Prämisse gebaut, dass nur wenige Menschen in der Lage sein werden, es zu nutzen. Die ursprüngliche Zielgruppe bestand hauptsächlich aus Forschern, die ihre Studien mit anderen Universitäten oder auch innerhalb einer Universität austauschen wollen.
 		
 		Es wurde daher kaum auf eine sichere Infrastruktur wert gelegt und die Protokolle von heute entsprechen immer noch denen von damals. Sicherheitsstrukturen wurden erst nachträglich eingebaut und erinnern eher an Flicken.
@@ -219,7 +232,7 @@
 	
 	\begin{frame}{Abwehr von Phishing-Attacken IV}
 		\begin{description}
-			\item[Verhalten] {Die Webseite verhält sich anders, als die normale. Gibt man beispielsweise seine Zugangsdaten ien, so wird man nicht eingeloggt, sondern landet wieder auf der (diesmal originalen) Login-Seite des Anbieters. Wenn man das bemerkt, ist es allerdings schon zu spät.}
+			\item[Verhalten] {Die Webseite verhält sich anders, als die normale. Gibt man beispielsweise seine Zugangsdaten ein, so wird man nicht eingeloggt, sondern landet wieder auf der (diesmal originalen) Login-Seite des Anbieters. Wenn man das bemerkt, ist es allerdings schon zu spät.}
 		\end{description}
 	\end{frame}
 	
@@ -234,9 +247,8 @@
 		Deutlich schwieriger abzuwehren sind solche Angriffe, die Schwachstellen der Internetseite selbst, des Browsers oder sonstige Programme des Computers ausnutzen.
 	\end{frame}
 	
-	\subsection{Tracking}
-	\subsubsection{Datenschutz}
-	\begin{frame}{Hintergrundwissen Datenschutz} 
+	\subsection{Datenschutz}
+	\begin{frame}{} 
 		\begin{itemize}
 			\item “Privacy protects us from abuses by those in power, even if we’re doing nothing wrong at the time of surveillance.” (Bruce Schneier)
 			\item Welche Daten werden für welchen Verwendungszweck wo erhoben, wie verarbeitet und an wen weitergegeben?
@@ -246,7 +258,7 @@
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}{Hintergrundwissen Datenschutz: Spielregeln}
+	\begin{frame}{Spielregeln}
 		\begin{itemize}
 			\item personenbezogenen Daten: Informationen, die mit einer Person verbunden werden
 			\item Verwendung: Sammeln, verarbeiten, weitergeben
@@ -257,7 +269,7 @@
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}{Hintergrundwissen Datenschutz: Rechte}
+	\begin{frame}{Rechte}
 		\begin{itemize}
 			\item Informationelle Selbstbestimmung
 			\item Recht auf Auskunft: Was wird gespeichert, wo kommt es her, wo geht es hin?
@@ -266,7 +278,7 @@
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}{Hintergrundwissen Datenschutz: Praxis}
+	\begin{frame}{Praxis}
 		\begin{itemize}
 			\item viele Länder = viele Gesetze
 			\item Es ist praktisch umstritten, welche Daten personenbezogen sind (z.B. Gerätekennung vs. natürliche Person)
@@ -276,39 +288,79 @@
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}{Tracking beim Verbindungsaufbau}
+	\subsection{Tracking}
+	\begin{frame}{Tracking beim Verbindungsaufbau I}
 		\begin{itemize}
 			\item DNS-Anfragen
 			\item IP-Adressen Routing
-			\item Social-media-like buttons
-			\item Web-beacons 
+			\item Laden von externen Seiteninhalten
+			\begin{itemize}
+				\item Web-beacons
+				\item Social-media-like-buttons
+			\end{itemize}
 		\end{itemize}
 	\end{frame}
+
+	\begin{frame}{Tracking beim Verbindungsaufbau II}
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{Abbildungen/trackography.png}
+			\label{fig:trackography}
+			\caption{Verbindungen im Allgemeinen}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}{Tracking beim Verbindungsaufbau III}
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{Abbildungen/webbeacons.png}
+			\label{fig:webbeacons}
+			\caption{Social-media-like-buttons}
+		\end{figure}
+	\end{frame}
+
 	
-	\begin{frame}{Tracking durch verräterischen Browser}
+	\begin{frame}{Tracking durch verräterischen Browser I}
 		\begin{itemize}
 			\item Geodaten
-			\item Browserfingerprinting
-			\item Cookies in verschiedenen Geschmacksrichtungen
 			\item URLs 
+			\item Cookies in verschiedenen Geschmacksrichtungen
+			\item Browserfingerprinting: Betriebssystem, Browsersoftware, Auflösung, JavaScript / Flash, Plugins, Addons, installierte Schriften, Sprache, Cookies
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}
-		\begin{itemize}
-			\item 
-		\end{itemize}
+	\begin{frame}{Tracking durch verräterischen Browser II}
+		\begin{figure}[V]
+			\includegraphics[width=0.8\textwidth]{Abbildungen/url_shortener.png}
+			\label{fig:url shortener}
+		\end{figure}
 	\end{frame}
-	
-	\begin{frame}
-		\begin{itemize}
-			\item 
-		\end{itemize}
+
+	\begin{frame}{Tracking durch verräterischen Browser III}
+		\begin{figure}[V]
+			\includegraphics[scale=0.5]{Abbildungen/lightbeam.png}
+			\label{fig:lightbeam}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}{Tracking durch verräterischen Browser IV}
+		\begin{figure}[V]
+			\includegraphics[scale=0.25]{Abbildungen/panopticlick.png}
+			\label{fig:panopticlick}
+		\end{figure}
 	\end{frame}
 	
 	\subsubsection{\enquote{Angewandter Datenschutz} im Internet}
 	
+		\begin{frame}{Todo-Platzhalter}
+			\begin{itemize}
+				\item sicherheitsrelevante Ratschläge einbauen
+
+			\end{itemize}
+		\end{frame}
+	
 	\section{Counterstrike GO}
+	\begin{frame}
+		\centering \huge \textbf{Counterstrike Go!}
+	\end{frame}
 	\subsection{Verhalten im Netz}
 	\begin{frame}{Verhalten im Netz}
 		\begin{itemize}
