@@ -6,7 +6,7 @@
 %hierbei handelt es sich um die Präsentation imt .tex-Format
 %Abbildungen etc. müssen entsprechend in eigenen Unterordnern präsent sein!
 
-\documentclass[utf8]{beamer}
+\documentclass[hyperref={colorlinks,linkcolor=blue}, utf8]{beamer}
 
 \mode<presentation>
 {
@@ -22,6 +22,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{times}
 \usepackage[babel, german=quotes]{csquotes}
+
 
 \title{Grundlagen des Internets und Sicherheit im Web}
 \subtitle{Das Böse im Netz und was man dagegen tun kann} % (optional)
@@ -368,17 +369,15 @@
 		\begin{itemize}
 			\item Datensparsamkeit
 			\begin{itemize}
-				\item Schein vs. Sein
-				\item Nicht überall registrieren, nicht eingeloggt bleiben
+				\item weniger ist mehr
+				\item nicht überall registrieren
+				\item nicht eingeloggt bleiben
 			\end{itemize}
 			\item Kostenlose Dienste hinterfragen
 			\begin{itemize}
-				\item Suchmaschinen:
-				Jede Suche ist mit einer Motivation verbunden, die Rückschlüssel zulässt. https://duckduckgo.com ist gut.
-				\item Email:
-				[web / gmx / aol / google / yahoo / hotmail ...] Sind doof, weil die Nachrichten mit kommerziellen Interessen durchsucht werden. Besser: [mailbox.org / poesto.de]
-				\item Cloud:
-				Was ich nicht kontrollieren kann ist schon verloren. Würdet ihr wirklich gerne euren privaten Urlaubsfotos auf anderen Computern speichern, auf die mindestens irgendwelche Mitarbeit zugriff haben? Und außerdem: Irgendwann werden alle gehackt. Wenn, dann die Daten sehr ordentlich verschlüsseln.
+				\item Suchmaschinen: duckduckgo.com
+				\item Email: mailbox.org / poesto.de
+				\item Cloud: wenn dann verschlüsselt
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
@@ -394,6 +393,27 @@
 			\item[UserAgentChanger]{... Finger weg!}
 		\end{description}
 	\end{frame}
+	
+	\subsection{Links für Interessierte}
+	\begin{frame}{Datenkraken}
+			\noindent
+			\begin{itemize}
+				\item Google: \href{https://myactivity.google.com/}{Alles, was du bei Google gemacht hast}
+				\item facebook: \href{https://netzpolitik.org/2016/98-daten-die-facebook-ueber-dich-weiss-und-nutzt-um-werbung-auf-dich-zuzuschneiden/}{Was die so für Daten sammeln}
+				\item Apple: \href{https://www.apple.com/privacy/privacy-policy/}{Datenschutzbestimmungen}
+			\end{itemize}
+	\end{frame}
+	
+		\begin{frame}{much knowledge -- so interactive -- wow}
+			\noindent
+			\begin{itemize}
+				\item Browserfingerprinting \href{https://panopticlick.eff.org}{panopticlick.eff.org}
+				\item \href{https://sec.hpi.de/vulndb/sd_first/}{Browser-Sicherheits-Check}
+				\item Nachrichtenlesen: \href{https://trackography.org/}{Visualisierung von Trackern}
+				\item \href{https://www.mbem.nrw/unterwegs-im-oeffentlichen-wlan-aber-gut-geschuetzt}{Ratgeber fürs Surfen im öffentlichem WLAN }
+				\item Alles, was wir wissen, wissen wir vom \href{https://privacy-handbuch.de/}{privacy Handbuch}
+			\end{itemize}
+		\end{frame}
 	
 	% Da dies ein Vorlage für beliebige Vorträge ist, lassen sich kaum
 	% allgemeine Regeln zur Strukturierung angeben. Da die Vorlage für
