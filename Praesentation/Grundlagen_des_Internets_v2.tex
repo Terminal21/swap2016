@@ -119,9 +119,9 @@
 
 	\begin{frame}{ISP II}
 		\begin{enumerate}
-			\item{Tier 3: Lokale Anbieter, die sich meist auf eine oder mehrere Städte begrenzen (z.B. "Muth Antennenbau" in Halle).}
+			\item{Tier 3: Lokale Anbieter, die sich meist auf eine oder mehrere Städte begrenzen (z.B. \enquote{Muth Antennenbau} in Halle).}
 			\item{Tier 2: Überregionale Anbieter, die sich über Kontinente erstrecken können (z.B. \enquote{Tele Columbus AG}).} 
-			\item{Tier 1: Anbieter, die eine weltumspannende Infrastruktur besitzen (z.B. "AT\&T", "Telekom", "Orange", uvm.).}
+			\item{Tier 1: Anbieter, die eine weltumspannende Infrastruktur besitzen (z.B. \enquote{AT\&T}, \enquote{Telekom}, \enquote{Orange}, uvm.).}
 		\end{enumerate}
 		
 		ISPs stellen die eigentlichen Verbindungen bereit, über die ein Datenaustausch zwischen Hosts möglich gemacht wird. ISPs bzw. deren Leitungen können sich auch geographisch überschneiden.
@@ -244,13 +244,59 @@
 	
 	\subsection{Ausnutzen von Schwachstellen}
 	\begin{frame}
-		Deutlich schwieriger abzuwehren sind solche Angriffe, die Schwachstellen der Internetseite selbst, des Browsers oder sonstige Programme des Computers ausnutzen.
+		Deutlich schwieriger abzuwehren sind solche Angriffe, die \emph{Schwachstellen} der Internetseite selbst, des Browsers oder sonstige Programme des Computers ausnutzen.
 	\end{frame}
+
+	\begin{frame}{Was sind \enquote{Schwachstellen}!?}
+		Schwachstellen sind nichts anderes als Programmierfehler, genauer gesagt, Anwendungsfälle, die der oder die Programmierer nicht bedacht haben. 
+		
+		Bekommen Programme andere Eingaben, als erwartet und können sie damit nicht korrekt umgehen, so stürzen sie meist ab oder versuchen, die Daten so einzulesen, wie sie es eigentlich nicht tun sollten. Handelt es sich bei einem erwarteten Nutzernamen auf einer Webseite plötzlich um Programmcode, so sollte der Server der Webseite diesen natürlich nicht ausführen. Viele machen das aber (Stichwort: \emph{SQL Injection}).		
+	\end{frame}
+
+	\begin{frame}{Was kann passieren?}
+		Werden solche Lücken ausgenutzt, so bedeutet das, dass spezieller Code bspw. in präparierten Webseiten direkt durch den Browser oder gar das Betriebssystem selbst ausgeführt wird und bspw. einen Trojaner installiert. Gelangt dieser auf den Rechner des Nutzers, entstehen erheblich größere Gefahren (Ausspähen der Nutzeraktivität und Dateien auf dem Computer usw.).
+	\end{frame}
+
+	\begin{frame}{Einschub: Trojaner vs. Viren}
+		Viren sind darauf angewiesen, vom Nutzer selbst heruntergeladen zu werden. Sie sind versteckt in vertrauenserweckenden Dateien verschiedener Tauschbörsen wie Videos, Bilder oder besonders kostengünstiger Spiele alternativer Downloadplattformen.
+		
+		Sie können aber auch in Anhängen von Mails wie PDF- oder MS Office-Dateien lauern und sich dann beim Öffnen nebenher installieren, wenn sie denn eine Schwachstelle in Office oder dem PDF-Viewer ausnutzen können.
+	\end{frame}
+
+	\begin{frame}{Einschub: Trojaner vs. Viren II}
+		Trojaner sind bösartige Programme, die sich in anderen Programmen verstecken und böses auf dem Computer anrichten. Sie können sich mit dem Internet verbinden, mit ihrem Erschaffer kommunizieren und Befehle ausführen oder einfach fleißig Daten vom Rechner klauen.
+		
+		Sie sind gerne versteckt in diversen Crackprogrammen und Keygeneratoren, nach denen viele sogar gezielt suchen.
+	\end{frame}
+
+	\begin{frame}{Schwachstellen im Browser}
+		Browser setzen vorrangig auf Kommunikation mit dem Internet, das Öffnen von Dateien aus dem Internet und dem Ausführen kleiner Programme (Javascript) aus dem Internet.
+		
+		Klingt nach der vollen Drönung.
+		
+		Gerade Browser besitzen daher viele Angriffsflächen für Schadcode. 
+		\begin{description}
+			\item[AddOns] {Addons sind Erweiterungen des Browsers, die Zugriff auf die Inhalte der Webseite bekommen, bevor der Nutzer sie zu sehen bekommt. Ihre Fähigkeiten reichen von der Integration zusätzlicher Emojis über das Blockieren von Werbung bis hin zum Umleiten der gesamten Kommunikation über Proxies. 
+			
+			Präparierte Webseiten könnten externen Code in verwundbaren Addons ausführen. \textbf{Hinweis: Webseiten können sehen, welche Addons verwendet werden - sogar die, die eigentlich deaktiviert sind.}}
+		\end{description}
+	\end{frame}
+
+\begin{frame}{Schwachstellen im Browser II}
+	Potenzielle Angriffsflächen:
+	\begin{description}
+		\item[Plugins] {Plugins sind ähnlich wie Browser, werden jedoch häufig von anderer Software auf dem Computer installiert. Sie dienen zur Darstellung bestimmter Inhalte auf der Webseite. Das bekannteste und für seine vielen Schwachstellen berüchtigte Plugin ist der Flash-Player von Adobe.
+		
+		Noch ein Tip: Webseiten können auch alle Plugins sehen, die verwendet werden und darauf entsprechend reagieren.}
+	\end{description}
+\end{frame}
 	
 	\subsection{Datenschutz}
-	\begin{frame}{} 
+	\begin{frame} 
 		\begin{itemize}
-			\item “Privacy protects us from abuses by those in power, even if we’re doing nothing wrong at the time of surveillance.” (Bruce Schneier)
+			\item{\enquote{Privacy protects us from abuses by those in power, even if we’re doing nothing wrong at the time of surveillance.}
+				
+			-- \emph{Bruce Schneier}}
 			\item Welche Daten werden für welchen Verwendungszweck wo erhoben, wie verarbeitet und an wen weitergegeben?
 			\item Tradeoff: Keine Daten anfallen lassen. vs. Dienste bequem in Anspruch nehmen
 			\note{ Was sind die offiziellen Spielregeln?}
