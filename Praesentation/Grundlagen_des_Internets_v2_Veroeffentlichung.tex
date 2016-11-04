@@ -1,0 +1,456 @@
+% Todo:
+% - ganz am Anfang ggf. Logos einbetten: https://download.terminal21.de/terminal21/logo/logo_aktuell_schwarz.svg
+% - anschauliche Linkliste
+% - ganz am Ende wäre ggf. ein Quellen-Nachweis aller Bilder schön
+
+%hierbei handelt es sich um die Präsentation imt .tex-Format
+%Abbildungen etc. müssen entsprechend in eigenen Unterordnern präsent sein!
+
+\documentclass[utf8]{beamer}
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	% oder ...
+	
+	\setbeamercovered{transparent}
+	% oder auch nicht
+}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage[babel, german=quotes]{csquotes}
+
+\title{Grundlagen des Internets und Sicherheit im Web}
+\subtitle{Das Böse im Netz und was man dagegen tun kann} % (optional)
+\author{Georg A. Murzik, Marcus Schilling}
+\institute{Terminal.21}
+
+\date{05. November 2016}
+
+% Dies wird lediglich in den PDF Informationskatalog einfügt. Kann gut
+% weggelassen werden.
+\subject{Grundlagen des Internets v2}
+
+%Logo vom Terminal.21
+\pgfdeclareimage[height=1.0cm]{Logo_Terminal}{Abbildungen/Logo_Terminal}
+\logo{\pgfuseimage{Logo_Terminal}}
+
+% Folgendes sollte gelöscht werden, wenn man nicht am Anfang jedes
+% Unterabschnitts die Gliederung nochmal sehen möchte.
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>{Gliederung}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+%Foliennummern
+\setbeamertemplate{footline}
+{%
+	\begin{beamercolorbox}[wd=0.5\textwidth,ht=3ex,dp=1.5ex,leftskip=.5em,rightskip=.5em]{author in head/foot}%
+		\usebeamerfont{author in head/foot}%
+		\insertframenumber{} von \inserttotalframenumber\hfill\insertshortauthor%
+	\end{beamercolorbox}%
+	\vspace*{-4.5ex}\hspace*{0.5\textwidth}%
+	\begin{beamercolorbox}[wd=0.5\textwidth,ht=3ex,dp=1.5ex,left,leftskip=.5em]{title in head/foot}%
+		\usebeamerfont{title in head/foot}%
+		\insertshorttitle%
+	\end{beamercolorbox}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                Begin der Präsentation                                        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	\section{Grundlagen des Internets}
+	\begin{frame}
+		\centering \huge \textbf{Grundlagen des Internets}
+	\end{frame}
+	
+	\subsection{Aufbau des Internets}
+	\begin{frame}
+		Das Internet ist keinesfalls eine große Wolke, wie es manchmal genannt wird. Stattdessen wird alles, was wir sehen oder auch nicht sehen von Computern gesteuert, die jemandem mit eigenen Interessen gehören.
+		
+		Jedes Paket, welches durch das Internet von A nach B gesendet werden soll, muss eine ganze Reihe Computer bzw. Router durchqueren, die das Paket weiterleiten. Ist das Paket unverschlüsselt, könnte sich jeder dieses Paket ansehen.
+	\end{frame}
+	
+	\begin{frame}{Übersicht}
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{Abbildungen/Uebersicht_Internet}
+			\label{fig:Übersicht des Internets}
+			\caption{Grundlegender Aufbau des Internets}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}{Hosts}
+		Ein Host ist ein Rechner, der mit anderen Rechnern im Internet Daten austauscht. Hosts sind über die gesamte Welt verstreut und können PCs, Laptops, Handys oder IoT (Internet of Things)-Geräte sein.
+	\end{frame}
+	
+	\begin{frame}{\enquote{Letzte Meile}}
+		Als letzte Meile werden die Kupfer- (seltener Glasfaser-) oder Mobilfunkbrücken bezeichnet, mit denen Hosts mit den Netzwerkverteilern ihres Providers verbunden werden. Dieser Teil ist in der Praxis häufig der Flaschenhals für Internetverbindungen, da die Geschwindigkeit stark von der Länge dieser Verbindung und dem Typ der Verbindung abhängt. Je länger diese Strecke, desto langsamer ist die Internetverbindung.
+		Wenn vom Breitbandausbau geredet wird, ist damit meistens gemeint, mehr Netzwerkverteiler aufzustellen, um kürzere und somit schnellere Verbindungen zu den Hosts zu gewährleisten.		
+	\end{frame}
+
+	\begin{frame}{\enquote{Letzte Meile} II}
+		\begin{itemize}
+			\item{Bei Kupferleitungen (DSL) besitzt jeder Host eine eigene Leitung bis zum nächsten Verteiler, dem DSLAM. Diese haben eine relativ geringe Geschwindigkeit (ca. 16 Mbit, max. 64 Mbit).}
+			\item{Bei Glasfaserverbindungen teilt sich eine größere Gruppe von Hosts eine Leitung, die eine entsprechend hohe Kapazität zur Verfügung stellt. Der Nachteil ist, dass die Bandbreite abhängig von der Nutzung schwankt.}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{PoP}
+		POPs (Point of Presence) sind Verbindungspunkte zwischen den Hosts und den ISPs und dienen als Netzwerkverteiler. Sie bilden die Brücke zwischen den schnellen Leitungen der ISPs und der letzten Meile der Hosts. Abhängig von den verwendeten Leitungen der letzten Meile müssen teilweise noch Übersetzungsgeräte (bspw. DSLAM [\enquote{Digital Subscriber Line Access Multiplexer}] dazwischengeschaltet werden, um die digitalen Signale des ISPs in analoge Signale umzuwandeln, die über das Kupferkabel gesendet werden können).
+		Dazu zählen auch Mobilfunkantennen bspw. für Edge (2G)-, UMTS / HSDPA (3G)- und LTE (4G)- Netze.
+	\end{frame}
+	
+	\begin{frame}{ISP}
+		ISPs besitzen eigene (Glasfaser-)Leitungen, die sich über einen geographischen Raum erstrecken und Knotenpunkte, die durch diese Leitungen verbunden werden. Diese Leitungen besitzen eine gigantische Übertragungskapazität und bestehen aus dicken Bündeln von Glasfaserkabeln, die bis zu 50GBit/s pro Kabel übertragen können.
+		ISPs werden abhängig von ihrer Größe in Tier 1, 2 und 3 unterschieden.
+	\end{frame}
+
+	\begin{frame}{ISP II}
+		\begin{enumerate}
+			\item{Tier 3: Lokale Anbieter, die sich meist auf eine oder mehrere Städte begrenzen (z.B. \enquote{Muth Antennenbau} in Halle).}
+			\item{Tier 2: Überregionale Anbieter, die sich über Kontinente erstrecken können (z.B. \enquote{Tele Columbus AG}).} 
+			\item{Tier 1: Anbieter, die eine weltumspannende Infrastruktur besitzen (z.B. \enquote{AT\&T}, \enquote{Telekom}, \enquote{Orange}, uvm.).}
+		\end{enumerate}
+		
+		ISPs stellen die eigentlichen Verbindungen bereit, über die ein Datenaustausch zwischen Hosts möglich gemacht wird. ISPs bzw. deren Leitungen können sich auch geographisch überschneiden.
+	\end{frame}
+	
+	\begin{frame}{IXP}
+		Beim Datenaustausch über das Internet kann es passieren, dass Sender und Empfänger nicht vom selben ISP versorgt werden. Die Daten müssen daher irgendwo an einen anderen ISP übergeben werden. In diesem Fall müssen ISPs die Anderen für diesen Transfer bezahlen. Dafür haben sie meist Verträge mit anderen (normalerweise größeren ISPs wie der Telekom), um die Daten kostengünstig übertragen zu können. Tier-1-ISPs stellen sich Verbindungen untereinander häufig sogar kostenlos zur Verfügung.
+		
+		Eine der größten IXPs (\enquote{Internet Exchange Point}) Deutschlands befindet sich in Frankfurt/Main, der es in Bezug auf den BND/NSA-Skandal schon häufiger in die Nachrichten geschafft hat.
+	\end{frame}
+	
+	\begin{frame}{Sonstige Netze}
+		Andere Netzwerke, wie z.B. zwischen Universitäten oder Intranets großer Energieversorger besitzen ihre eigene, teilweise weltumspannende Infrastruktur (\enquote{Intranet}), die genauso aufgebaut ist, wie das \enquote{allgemeine} Internet, jedoch nur innerhalb dieser Firmen erreichbar ist.
+	\end{frame}
+	
+	\subsection{Kommunikation}
+	\begin{frame}{Webdienste}
+		Webdienste sind Programme im Internet, auf die von einem beliebigen Rechner aus zugegriffen werden kann. Diese Programme werden auf einem oder mehreren vernetzten Computern (einem \enquote{verteilten System}) ausgeführt. Dabei kann es sich um Webseiten, Datenbanken o.Ä. handeln. Die Hostcomputer sind unter einer (oder mehreren) Internetadressen zu erreichen. Normalerweise wird ein Dienst aber nur über eine einzige URL aufgerufen.
+	\end{frame}
+	
+	\begin{frame}{DNS}
+		DNS (Domain Name Service)-Dienste dienen als Adressbuch im Internet und sind allgemein bekannt. Sie lösen Adressen wie bspw. \url{https://netzpolitik.org//} in korrespondierende IP-Adressen auf (hier 91.102.13.28). Dem Client muss mindestens ein DNS-Dienst bekannt sein, um eine Verbindung zum Internet aufbauen zu können. Diese verweist meistens auf den Provider und wird im oftmals mitgelieferten Router festgelegt. Clients im WLAN des Routers haben für gewöhnlich die Adresse des Routers als DNS- bzw. Gateway-Adresse.
+	\end{frame}
+	
+	\begin{frame}{Webclients}
+		Webclients sind die Schnittstelle zwischen Nutzer und Internet. Bekannteste Clients sind Webbrowser. Sie fordern Daten von Webservern an und stellen die Antwortdaten für den Nutzer übersichtlich dar und bieten weitere Interaktionsmöglichkeiten mit Webdiensten.
+	\end{frame}
+	
+	\begin{frame}{Aufruf einer Webseite}
+		Webseiten werden über die IP-Adresse des hostenden Servers angefordert. Um den Aufruf von Webseiten zu vereinfachen, werden stattdessen URLs verwendet (z.B. \url{https://www.privacy-handbuch.de/}). Diese können entweder direkt in das Adressenfeld des Browsers eingetragen oder über Links aufgerufen werden, die normalerweise in blauer Schrift und unterstrichen dargestellt werden.
+	\end{frame}
+
+	\begin{frame}{Aufruf einer Webseite II}
+		Der Browser ruft zunächst einen DNS-Dienst auf. Dieser ist in der Konfiguration der Internetverbindung angegeben. Der Dienst kann die Anfrage an viele weitere DNS-Dienste weiterleiten, bis einer der Dienste die passende IP-Adresse zu dieser URL kennt.
+		DNS-Dienste sind hierarchisch aufgebaut. So gibt es eigene DNS-Dienste für alle Adressen, die auf .de enden. Für die oben angegebene Adresse würde dann der Eintrag \enquote{privacy-handbuch.de} gesucht.
+	\end{frame}
+
+	\begin{frame}{Aufruf einer Webseite III}
+		Für die Adresse, die daraufhin zurückgegeben wird  (in unserem Fall die IPv6-Adresse 2a01:238:20a:202:1078:0000:0000), könnte wieder ein DNS-Dienst verfügbar sein, unter dem die Subdomain www.privacy-handbuch.de abgefragt wird. Hier wird dann die IPv4-Adresse 81.169.145.78 geliefert. Ob hier Unterseiten eine andere IP-Adresse haben oder sogar verschiedene IP-Adressen für die gleichen Unterseiten existieren, kommt auf die Netzwerkstruktur des Webdienstes an. Für das oben genannte Beispiel gibt es nur die Subdomain www.privacy-handbuch.de, die auch unter privacy-handbuch.de erreichbar ist.
+	\end{frame}
+
+	\begin{frame}{Aufruf einer Webseite IV}
+		Die Anfrage an einen Webserver enthält die angefragte Datei, z.B. https://www.privacy-handbuch.de/index.htm oder https://www.privacy-handbuch.de/handbuch\_11.htm sowie die eigene IP-Adresse, zu der die Antwortdaten gesendet werden sollen.
+		Die Antwort enthält Verweise auf alle benötigten Dateien, die zum Darstellen der Webseite erforderlich sind. Diese Dateien werden häufig erst kurz vorher durch den Server generiert, um die Webseite an den Benutzer anzupassen.
+	\end{frame}
+
+	\begin{frame}{Aufruf einer Webseite V}
+		Der Webclient lädt alle erforderlichen Dateien herunter und bindet sie, wie in der     index.htm-Datei beschrieben, auf der Webseite ein. Anschließend wird die handbuch.css-Datei ausgewertet, die erweiterte Informationen zur Darstellung der Webseite bereitstellt. Manchmal werden auch Skripte eingebunden, mit denen die Seite oft auch ohne erneute Anfrage an den Webserver mit dem Nutzer interagieren kann. Wurde alles geladen und ausgewertet, so wird die Webseite angezeigt.
+	\end{frame}
+	
+	\section{Gefahren im Netz}
+	\begin{frame}
+		\centering \huge \textbf{Gefahren im Netz}
+	\end{frame}
+	
+	\begin{frame}
+		Das Internet wurde ursprünglich unter der Prämisse gebaut, dass nur wenige Menschen in der Lage sein werden, es zu nutzen. Die ursprüngliche Zielgruppe bestand hauptsächlich aus Forschern, die ihre Studien mit anderen Universitäten oder auch innerhalb einer Universität austauschen wollen.
+		
+		Es wurde daher kaum auf eine sichere Infrastruktur wert gelegt und die Protokolle von heute entsprechen immer noch denen von damals. Sicherheitsstrukturen wurden erst nachträglich eingebaut und erinnern eher an Flicken.
+	\end{frame}
+
+	\begin{frame}
+		Zusätzlich zu der löchrigen Infrastruktur des Internets werden auch viele Webdienste im Internet stümperhaft programmiert. Diese Kombination führt zu allerlei Gefahren im Internet, denen man sich als normaler Nutzer oftmals nicht bewusst ist.
+		
+		Genau um diese Gefahren soll es nun gehen.
+	\end{frame}
+
+	\begin{frame}{Übersicht der Gefahren im Netz}
+		Unabhängig von der Art der Schwachstelle ist die Hauptgefahr immer die selbe: Dass Daten in die falschen Hände geraten. Solche Daten könnten z.B. Bank-, Login-, oder Adressdaten sowie allgemeine persönliche Daten sein. 
+		
+		Es gibt zudem viele Wege, wie man als Angreifer an solche Informationen gelangen kann:
+		\begin{enumerate}
+			\item Phishing
+			\item Ausnutzen von Schwachstellen
+			\item Tracking			
+		\end{enumerate}
+	\end{frame}
+
+	\subsection{Phishing}
+	\begin{frame}
+		Als Phishing bezeichnet man den Versuch, an persönliche Daten eines Opfers zu gelangen, indem man ihn auf gefälschte Webseiten leitet, ihm falsche E-Mails oder Kurznachrichten sendet.
+		Opfer eines solchen Angriffes ist wahrscheinlich schon jeder einmal gewesen, der im Web unterwegs war. Angriffe reichen von sehr plumpen Versuchen wie \enquote{Sie sind der 1.000.000. Benutzer, holen sie sich hier ihren Gewinn ab.} bis zu aufwändig gestalteten E-Mails, dass man mal eben online bei seiner Bank eine verdächtige Aktivität überprüfen soll, damit kein Geld verloren geht.
+	\end{frame}
+
+	\begin{frame}
+		Wie einfach es ist, einen solchen Angriff zu starten, möchte ich nun vorführen.
+	\end{frame}
+	
+	\begin{frame}{Abwehr von Phishing-Attacken}
+		Die eben erstellte Webseite unterscheidet sich von der originalen Webseite in folgenden Eigenschaften:		
+		\begin{description}
+			\item[URL] {In der Live-Demo hatte ich keine Zeit, eine richtige Domain für meine Webseite zu registrieren. Hätte ich diese gehabt, so hätte ich eine genommen, die der originalen zum Verwechseln ähnlich sieht, z.B. gooogle.de statt google.de.
+			Die Domain ist teil der URL, die oben im Browser steht.
+			Hier wäre es einfach zu durchschauen, dass die Seite nicht echt ist - schließlich steht hier nur eine einfache IP-Adresse.}
+		\end{description}
+	\end{frame}
+
+	\begin{frame}{Abwehr von Phishing-Attacken II}
+		\begin{description}
+			\item[TLS-Verschlüsselung] {In der Live-Demo hatte ich ebenfalls keine Zeit, mir ein Zertifikat für meinen Server zu besorgen. Dieses sorgt dafür, dass die Verbindung mittels TLS verschlüsselt und über die Zertifizierungsstelle authorisiert ist. Kurz gesagt, dass sichergestellt ist, dass die Webseite die ist, für die sie sich ausgibt und die Verbindung stets verschlüsselt und nicht durch andere manipulierbar ist. Dies erkennt man an dem Schlosssymbol und der grün hinterlegten URL des Browsers.}			
+		\end{description}
+	\end{frame}
+	
+	\begin{frame}{Abwehr von Phishing-Attacken III}
+		Möchte man sichergehen, dass das Zertifikat einer Webseite vertrauenswürdig ist, so muss man sich die URL und das Zertifikat selbst genau ansehen. Ein Klick auf das Schlosssymbol sollte dies in jedem Browser ermöglichen.
+		Im Zertifikat muss der korrekte Name der Firma stehen, die die Seite betreibt und die URL muss genau die sein, die man erwartet. Fast jede große und bekannte Webseite stellt ihre Identitätsdaten im Zertifikat zur Verfügung.
+	\end{frame}
+	
+	\begin{frame}{Abwehr von Phishing-Attacken IV}
+		\begin{description}
+			\item[Verhalten] {Die Webseite verhält sich anders, als die normale. Gibt man beispielsweise seine Zugangsdaten ein, so wird man nicht eingeloggt, sondern landet wieder auf der (diesmal originalen) Login-Seite des Anbieters. Wenn man das bemerkt, ist es allerdings schon zu spät.}
+		\end{description}
+	\end{frame}
+	
+	\begin{frame}{Zusammenfassung}
+		Grundsätzlich können Phishing-Attacken durch etwas Misstrauen im Netz leicht abgewehrt werden. Erwarte ich eine Mail von diesem Anbieter? Würde mir ein Anwalt so etwas wirklich per Mail schicken? Wäre wirklich jemand so großzügig, mir das neueste iPhone einfach so zu schenken?
+		
+		Ist dieser Test bestanden, so gibt es eine weitere Möglichkeit, Phishing zu verhindern: Bekomme ich eine sehr echt aussehende Mail von meiner Bank, so drücke ich auf gar keinen Fall irgendeinen Link darin. Stattdessen mache ich den Browser selbst auf und logge mich in der mir bekannten Webseite der Bank selbst ein. Idealerweise habe ich für solch wichtige Webseiten sowieso ein Lesezeichen gesetzt.
+	\end{frame}
+	
+	\subsection{Ausnutzen von Schwachstellen}
+	\begin{frame}
+		Deutlich schwieriger abzuwehren sind solche Angriffe, die \emph{Schwachstellen} der Internetseite selbst, des Browsers oder sonstige Programme des Computers ausnutzen.
+	\end{frame}
+
+	\begin{frame}{Was sind \enquote{Schwachstellen}!?}
+		Schwachstellen sind nichts anderes als Programmierfehler, genauer gesagt, Anwendungsfälle, die der oder die Programmierer nicht bedacht haben. 
+		
+		Bekommen Programme andere Eingaben, als erwartet und können sie damit nicht korrekt umgehen, so stürzen sie meist ab oder versuchen, die Daten so einzulesen, wie sie es eigentlich nicht tun sollten. Handelt es sich bei einem erwarteten Nutzernamen auf einer Webseite plötzlich um Programmcode, so sollte der Server der Webseite diesen natürlich nicht ausführen. Viele machen das aber (Stichwort: \emph{SQL Injection}).		
+	\end{frame}
+
+	\begin{frame}{Was kann passieren?}
+		Werden solche Lücken ausgenutzt, so bedeutet das, dass spezieller Code bspw. in präparierten Webseiten direkt durch den Browser oder gar das Betriebssystem selbst ausgeführt wird und bspw. einen Trojaner installiert. Gelangt dieser auf den Rechner des Nutzers, entstehen erheblich größere Gefahren (Ausspähen der Nutzeraktivität und Dateien auf dem Computer usw.).
+	\end{frame}
+
+	\begin{frame}{Einschub: Trojaner vs. Viren}
+		Viren sind darauf angewiesen, vom Nutzer selbst heruntergeladen zu werden. Sie sind versteckt in vertrauenserweckenden Dateien verschiedener Tauschbörsen wie Videos, Bilder oder besonders kostengünstiger Spiele alternativer Downloadplattformen.
+		
+		Sie können aber auch in Anhängen von Mails wie PDF- oder MS Office-Dateien lauern und sich dann beim Öffnen nebenher installieren, wenn sie denn eine Schwachstelle in Office oder dem PDF-Viewer ausnutzen können.
+	\end{frame}
+
+	\begin{frame}{Einschub: Trojaner vs. Viren II}
+		Trojaner sind bösartige Programme, die sich in anderen Programmen verstecken und böses auf dem Computer anrichten. Sie können sich mit dem Internet verbinden, mit ihrem Erschaffer kommunizieren und Befehle ausführen oder einfach fleißig Daten vom Rechner klauen.
+		
+		Sie sind gerne versteckt in diversen Crackprogrammen und Keygeneratoren, nach denen viele sogar gezielt suchen.
+	\end{frame}
+
+	\begin{frame}{Schwachstellen im Browser}
+		Browser setzen vorrangig auf Kommunikation mit dem Internet, das Öffnen von Dateien aus dem Internet und dem Ausführen kleiner Programme (Javascript) aus dem Internet.
+		
+		Klingt nach der vollen Drönung.
+		
+		Gerade Browser besitzen daher viele Angriffsflächen für Schadcode. 
+		\begin{description}
+			\item[AddOns] {Addons sind Erweiterungen des Browsers, die Zugriff auf die Inhalte der Webseite bekommen, bevor der Nutzer sie zu sehen bekommt. Ihre Fähigkeiten reichen von der Integration zusätzlicher Emojis über das Blockieren von Werbung bis hin zum Umleiten der gesamten Kommunikation über Proxies. 
+			
+			Präparierte Webseiten könnten externen Code in verwundbaren Addons ausführen. \textbf{Hinweis: Webseiten können sehen, welche Addons verwendet werden - sogar die, die eigentlich deaktiviert sind.}}
+		\end{description}
+	\end{frame}
+
+\begin{frame}{Schwachstellen im Browser II}
+	Potenzielle Angriffsflächen:
+	\begin{description}
+		\item[Plugins] {Plugins sind ähnlich wie Browser, werden jedoch häufig von anderer Software auf dem Computer installiert. Sie dienen zur Darstellung bestimmter Inhalte auf der Webseite. Das bekannteste und für seine vielen Schwachstellen berüchtigte Plugin ist der Flash-Player von Adobe.
+		
+		Noch ein Tip: Webseiten können auch alle Plugins sehen, die verwendet werden und darauf entsprechend reagieren.}
+	\end{description}
+\end{frame}
+	
+	\subsection{Datenschutz}
+	\begin{frame} 
+		\begin{itemize}
+			\item{\enquote{Privacy protects us from abuses by those in power, even if we’re doing nothing wrong at the time of surveillance.}
+				
+			-- \emph{Bruce Schneier}}
+			\item Welche Daten werden für welchen Verwendungszweck wo erhoben, wie verarbeitet und an wen weitergegeben?
+			\item Tradeoff: Keine Daten anfallen lassen. vs. Dienste bequem in Anspruch nehmen
+			\note{ Was sind die offiziellen Spielregeln?}
+			\note{ Welche juristischen und technischen Möglichkeiten habe ich?}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Spielregeln}
+		\begin{itemize}
+			\item personenbezogenen Daten: Informationen, die mit einer Person verbunden werden
+			\item Verwendung: Sammeln, verarbeiten, weitergeben
+			\item Kenntlichmachung von notwendigen und freiwilligen Angaben
+			\item Aufklärung über etwaige Nachteile, wenn man freiwillige Angaben nicht tätigt
+			\item Einwilligung schriftlich oder digital
+			\item neuer Verwendungszweck = neue Erlaubnis
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Rechte}
+		\begin{itemize}
+			\item Informationelle Selbstbestimmung
+			\item Recht auf Auskunft: Was wird gespeichert, wo kommt es her, wo geht es hin?
+			\item Recht auf Berichtigung: Wenn was falsch ist.
+			\item Recht auf Löschung: Wenn die Daten für den vereinbarten Zweck nicht mehr notwendig sind.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Praxis}
+		\begin{itemize}
+			\item viele Länder = viele Gesetze
+			\item Es ist praktisch umstritten, welche Daten personenbezogen sind (z.B. Gerätekennung vs. natürliche Person)
+			\item wir hinterlassen beim Browsen viele Spuren, die nebenbei verarbeitet werden; durch viele Informationsquellen kann man auf die Person schließen
+			\note{Welche Techniken des Trackings werden beim genutzt?}
+			\note{Welche Maßnahmen kann man zum Schutz meiner Privatsphäre ergreifen?}
+		\end{itemize}
+	\end{frame}
+	
+	\subsection{Tracking}
+	\begin{frame}{Tracking beim Verbindungsaufbau I}
+		\begin{itemize}
+			\item DNS-Anfragen
+			\item IP-Adressen Routing
+			\item Laden von externen Seiteninhalten
+			\begin{itemize}
+				\item Web-beacons
+				\item Social-media-like-buttons
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Tracking beim Verbindungsaufbau II}
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{Abbildungen/trackography.png}
+			\label{fig:trackography}
+			\caption{Verbindungen im Allgemeinen}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}{Tracking beim Verbindungsaufbau III}
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{Abbildungen/webbeacons.png}
+			\label{fig:webbeacons}
+			\caption{Social-media-like-buttons}
+		\end{figure}
+	\end{frame}
+
+	
+	\begin{frame}{Tracking durch verräterischen Browser I}
+		\begin{itemize}
+			\item Geodaten
+			\item URLs 
+			\item Cookies in verschiedenen Geschmacksrichtungen
+			\item Browserfingerprinting: Betriebssystem, Browsersoftware, Auflösung, JavaScript / Flash, Plugins, Addons, installierte Schriften, Sprache, Cookies
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Tracking durch verräterischen Browser II}
+		\begin{figure}[V]
+			\includegraphics[width=0.8\textwidth]{Abbildungen/url_shortener.png}
+			\label{fig:url shortener}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}{Tracking durch verräterischen Browser III}
+		\begin{figure}[V]
+			\includegraphics[scale=0.5]{Abbildungen/lightbeam.png}
+			\label{fig:lightbeam}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame}{Tracking durch verräterischen Browser IV}
+		\begin{figure}[V]
+			\includegraphics[scale=0.25]{Abbildungen/panopticlick.png}
+			\label{fig:panopticlick}
+		\end{figure}
+	\end{frame}
+	
+	\subsubsection{\enquote{Angewandter Datenschutz} im Internet}
+	
+		\begin{frame}{Todo-Platzhalter}
+			\begin{itemize}
+				\item sicherheitsrelevante Ratschläge einbauen
+
+			\end{itemize}
+		\end{frame}
+	
+	\section{Counterstrike GO}
+	\begin{frame}
+		\centering \huge \textbf{Counterstrike Go!}
+	\end{frame}
+	\subsection{Verhalten im Netz}
+	\begin{frame}{Verhalten im Netz}
+		\begin{itemize}
+			\item Datensparsamkeit
+			\begin{itemize}
+				\item Schein vs. Sein
+				\item Nicht überall registrieren, nicht eingeloggt bleiben
+			\end{itemize}
+			\item Kostenlose Dienste hinterfragen
+			\begin{itemize}
+				\item Suchmaschinen:
+				Jede Suche ist mit einer Motivation verbunden, die Rückschlüssel zulässt. https://duckduckgo.com ist gut.
+				\item Email:
+				[web / gmx / aol / google / yahoo / hotmail ...] Sind doof, weil die Nachrichten mit kommerziellen Interessen durchsucht werden. Besser: [mailbox.org / poesto.de]
+				\item Cloud:
+				Was ich nicht kontrollieren kann ist schon verloren. Würdet ihr wirklich gerne euren privaten Urlaubsfotos auf anderen Computern speichern, auf die mindestens irgendwelche Mitarbeit zugriff haben? Und außerdem: Irgendwann werden alle gehackt. Wenn, dann die Daten sehr ordentlich verschlüsseln.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\subsection{Technische Hilfsmittel}
+	\begin{frame}{Addons}
+		\noindent
+		\begin{description}
+			\item[Privaconf]{https://addons.mozilla.org/de/firefox/addon/privaconf/}
+			\item[Cookie-Controller]{https://addons.mozilla.org/de/firefox/addon/cookie-controller/}
+			\item[Canvasblocker]{https://addons.mozilla.org/de/firefox/addon/canvasblocker/}
+			\item[no-resource-uri-leak]{https://addons.mozilla.org/de/firefox/addon/no-resource-uri-leak/}
+			\item[UserAgentChanger]{Nicht benutzen!}
+		\end{description}
+	\end{frame}
+	
+	% Da dies ein Vorlage für beliebige Vorträge ist, lassen sich kaum
+	% allgemeine Regeln zur Strukturierung angeben. Da die Vorlage für
+	% einen Vortrag zwischen 15 und 45 Minuten gedacht ist, fährt man aber
+	% mit folgenden Regeln oft gut.  
+	
+	% - Es sollte genau zwei oder drei Abschnitte geben (neben der
+	%   Zusammenfassung). 
+	% - *Höchstens* drei Unterabschnitte pro Abschnitt.
+	% - Pro Rahmen sollte man zwischen 30s und 2min reden. Es sollte also
+	%   15 bis 30 Rahmen geben.
+	
+	
+\end{document}
+
+
