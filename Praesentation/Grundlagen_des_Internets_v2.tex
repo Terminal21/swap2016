@@ -230,49 +230,73 @@
 		Deutlich schwieriger abzuwehren sind solche Angriffe, die \emph{Schwachstellen} der Internetseite selbst, des Browsers oder sonstige Programme des Computers ausnutzen.
 	\end{frame}
 
-	\begin{frame}{Was sind \enquote{Schwachstellen}!?}
-		Schwachstellen sind nichts anderes als Programmierfehler, genauer gesagt, Anwendungsfälle, die der oder die Programmierer nicht bedacht haben. 
+	\begin{frame}
+		\begin{block}{Was sind \enquote{Schwachstellen}!?}
+			Schwachstellen sind nichts anderes als Programmierfehler, oder auch Anwendungsfälle, die der oder die Programmierer nicht bedacht haben.
+		\end{block}
 		
-		Bekommen Programme andere Eingaben, als erwartet und können sie damit nicht korrekt umgehen, so stürzen sie meist ab oder versuchen, die Daten so einzulesen, wie sie es eigentlich nicht tun sollten. Handelt es sich bei einem erwarteten Nutzernamen auf einer Webseite plötzlich um Programmcode, so sollte der Server der Webseite diesen natürlich nicht ausführen. Viele machen das aber (Stichwort: \emph{SQL Injection}).		
+		\begin{itemize}
+			\item Programme prüfen Eingaben nicht (Code-Injection, XSS)
+			\item Programme können zum Absturz gebracht werden (Buffer Overflow)
+			\item Programme überprüfen Dateien nicht (Macroviren)
+			\item Programme vertrauen ihren eigenen Protokollen zu sehr (Code Injection)
+			\item Programme vertrauen einem bestimmten Webserver zu sehr (Code Injection)
+		\end{itemize}
 	\end{frame}
 
 	\begin{frame}{Was kann passieren?}
-		Werden solche Lücken ausgenutzt, so bedeutet das, dass spezieller Code bspw. in präparierten Webseiten direkt durch den Browser oder gar das Betriebssystem selbst ausgeführt wird und bspw. einen Trojaner installiert. Gelangt dieser auf den Rechner des Nutzers, entstehen erheblich größere Gefahren (Ausspähen der Nutzeraktivität und Dateien auf dem Computer usw.).
-	\end{frame}
-
-	\begin{frame}{Einschub: Trojaner vs. Viren}
-		Viren sind darauf angewiesen, vom Nutzer selbst heruntergeladen zu werden. Sie sind versteckt in vertrauenserweckenden Dateien verschiedener Tauschbörsen wie Videos, Bilder oder besonders kostengünstiger Spiele alternativer Downloadplattformen.
-		
-		Sie können aber auch in Anhängen von Mails wie PDF- oder MS Office-Dateien lauern und sich dann beim Öffnen nebenher installieren, wenn sie denn eine Schwachstelle in Office oder dem PDF-Viewer ausnutzen können.
-	\end{frame}
-
-	\begin{frame}{Einschub: Trojaner vs. Viren II}
-		Trojaner sind bösartige Programme, die sich in anderen Programmen verstecken und böses auf dem Computer anrichten. Sie können sich mit dem Internet verbinden, mit ihrem Erschaffer kommunizieren und Befehle ausführen oder einfach fleißig Daten vom Rechner klauen.
-		
-		Sie sind gerne versteckt in diversen Crackprogrammen und Keygeneratoren, nach denen viele sogar gezielt suchen.
+		\begin{itemize}
+			\item größtenteils Code Injection
+			\item Privilegien des Programmes werden genutzt, um Code auf dem COmputer selbst auszuführen
+			\item Schaden abhängig von der Integration des Programmes in das Betriebssystem und seiner Berechtigungen
+			\item Schlimmstenfalls installieren von permanenten Schadprogrammen
+		\end{itemize}
 	\end{frame}
 
 	\begin{frame}{Schwachstellen im Browser}
-		Browser setzen vorrangig auf Kommunikation mit dem Internet, das Öffnen von Dateien aus dem Internet und dem Ausführen kleiner Programme (Javascript) aus dem Internet.
+		\begin{block}{Webbrowser}
+			Browser setzen vorrangig auf Kommunikation mit dem Internet. Sie öffnen Dateien aus dem Internet und können kleine Programme (wie Javascript) aus dem Internet direkt ausführen.
+		\end{block}
 		
-		Klingt nach der vollen Drönung.
+		\alert{ $\rightarrow$ Klingt nach der vollen Drönung!}
 		
-		Gerade Browser besitzen daher viele Angriffsflächen für Schadcode. 
+		Gerade Browser besitzen daher viele Angriffsflächen für Schadcode. 		
+	\end{frame}
+
+	\begin{frame}{Angriffsflächen von Browsern}
 		\begin{description}
-			\item[AddOns] {Addons sind Erweiterungen des Browsers, die Zugriff auf die Inhalte der Webseite bekommen, bevor der Nutzer sie zu sehen bekommt. Ihre Fähigkeiten reichen von der Integration zusätzlicher Emojis über das Blockieren von Werbung bis hin zum Umleiten der gesamten Kommunikation über Proxies. 
+			\item[AddOns] {
+				\begin{itemize}
+					\item Erweiterungen der Funktionsfähigkeit des Browsers
+					\item Individualisierung und Personalisierung des Browsers
+					\item zeigen Emojis, Blockieren Werbung oder leiten den gesamten Datenverkehr über Proxys
+				\end{itemize}
 			
-			Präparierte Webseiten könnten externen Code in verwundbaren Addons ausführen. \textbf{Hinweis: Webseiten können sehen, welche Addons verwendet werden - sogar die, die eigentlich deaktiviert sind.}}
+				\begin{alertblock}{!!!}
+					Präparierte Webseiten könnten externen Code in verwundbaren Addons ausführen. 
+					
+					\textbf{Hinweis: Webseiten können sehen, welche Addons verwendet werden - sogar die, die eigentlich deaktiviert sind.}
+				\end{alertblock}
+			}
 		\end{description}
 	\end{frame}
 
-\begin{frame}{Schwachstellen im Browser II}
-	Potenzielle Angriffsflächen:
-	\begin{description}
-		\item[Plugins] {Plugins sind ähnlich wie Browser, werden jedoch häufig von anderer Software auf dem Computer installiert. Sie dienen zur Darstellung bestimmter Inhalte auf der Webseite. Das bekannteste und für seine vielen Schwachstellen berüchtigte Plugin ist der Flash-Player von Adobe.
-		
-		Noch ein Tip: Webseiten können auch alle Plugins sehen, die verwendet werden und darauf entsprechend reagieren.}
-	\end{description}
-\end{frame}
+	\begin{frame}{Angriffsflächen von Browsern II}
+		\begin{description}
+			\item[Plugins] {
+				\begin{itemize}
+					\item ähnlich wie Addons
+					\item dienen der Darstellung bestimmter Seiteninhalte
+					\item häufig proprietär, von anderer Software auf dem Computer installiert
+					\item bekanntestes Plugin: FlashPlayer von Adobe					
+				\end{itemize}
+			
+			\begin{alertblock}{Noch ein Tip:}
+				Webseiten können auch alle Plugins sehen, die verwendet werden und darauf entsprechend reagieren.
+			\end{alertblock}
+		}
+		\end{description}
+	\end{frame}
 	
 	\subsection{Datenschutz}
 	\begin{frame} 
