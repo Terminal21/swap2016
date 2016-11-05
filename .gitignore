@@ -178,3 +178,8 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+*.png
+Praesentation/Abbildungen/Browser_DNS_Server_Communication.gif
+*.gif
+Praesentation/Abbildungen/Uebersicht_Internet.jpg
+*.svg
