@@ -35,8 +35,8 @@
 \subject{Grundlagen des Internets v2}
 
 %Logo vom Terminal.21
-\pgfdeclareimage[height=1.0cm]{Logo_Terminal}{Abbildungen/Logo_Terminal}
-\logo{\pgfuseimage{Logo_Terminal}}
+%\pgfdeclareimage[height=1.0cm]{Logo_Terminal}{Abbildungen/Logo_Terminal}
+%\logo{\pgfuseimage{Logo_Terminal}}
 
 % Folgendes sollte gelöscht werden, wenn man nicht am Anfang jedes
 % Unterabschnitts die Gliederung nochmal sehen möchte.
@@ -49,16 +49,16 @@
 
 %Foliennummern
 \setbeamertemplate{footline}
-{%
-	\begin{beamercolorbox}[wd=0.5\textwidth,ht=3ex,dp=1.5ex,leftskip=.5em,rightskip=.5em]{author in head/foot}%
-		\usebeamerfont{author in head/foot}%
-		\insertframenumber{} von \inserttotalframenumber\hfill\insertshortauthor%
-	\end{beamercolorbox}%
-	\vspace*{-4.5ex}\hspace*{0.5\textwidth}%
-	\begin{beamercolorbox}[wd=0.5\textwidth,ht=3ex,dp=1.5ex,left,leftskip=.5em]{title in head/foot}%
-		\usebeamerfont{title in head/foot}%
-		\insertshorttitle%
-	\end{beamercolorbox}%
+{
+	\begin{beamercolorbox}[wd=0.5\textwidth,ht=3ex,dp=1.5ex,leftskip=.5em,rightskip=.5em]{author in head/foot}
+		\usebeamerfont{author in head/foot}
+		\insertframenumber{} von \inserttotalframenumber\hfill\insertshortauthor
+	\end{beamercolorbox}
+	\vspace*{-4.5ex}\hspace*{0.5\textwidth}
+	\begin{beamercolorbox}[wd=0.5\textwidth,ht=3ex,dp=1.5ex,left,leftskip=.5em]{title in head/foot}
+		\usebeamerfont{title in head/foot}
+		\insertshorttitle
+	\end{beamercolorbox}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,10 +66,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-	
 	\begin{frame}
 		\titlepage
 	\end{frame}
+	
 	
 	\section{Grundlagen des Internets}
 	\begin{frame}
@@ -78,37 +78,59 @@
 	
 	\subsection{Aufbau des Internets}
 	\begin{frame}
-		Das Internet ist keinesfalls eine große Wolke, wie es manchmal genannt wird. Stattdessen wird alles, was wir sehen oder auch nicht sehen von Computern gesteuert, die jemandem mit eigenen Interessen gehören.
+		\begin{block}{Die \enquote{Cloud}}
+			Das Internet ist keinesfalls eine große Wolke, wie es manchmal genannt wird. Stattdessen wird alles, was wir sehen oder auch nicht sehen von Computern gesteuert, die jemandem mit eigenen Interessen gehören.
+		\end{block}
 		
-		Jedes Paket, welches durch das Internet von A nach B gesendet werden soll, muss eine ganze Reihe Computer bzw. Router durchqueren, die das Paket weiterleiten. Ist das Paket unverschlüsselt, könnte sich jeder dieses Paket ansehen.
+		\begin{block}{Pfad durch das Internet}
+			Jedes Paket, welches durch das Internet von A nach B gesendet werden soll, muss eine ganze Reihe Computer bzw. Router durchqueren, die das Paket weiterleiten. Ist das Paket unverschlüsselt, könnte sich jeder dieses Paket ansehen.
+		\end{block}
 	\end{frame}
 	
 	\begin{frame}{Übersicht}
 		\begin{figure}[H]
-			\includegraphics[width=\textwidth]{Abbildungen/Uebersicht_Internet}
+			%\includegraphics[width=\textwidth]{Abbildungen/Uebersicht_Internet}
 			\label{fig:Übersicht des Internets}
 			\caption{Grundlegender Aufbau des Internets}
 		\end{figure}
+		\small \copyright \enquote{Computernetzwerke}: Andrew S. Tanenbaum / Prof. David J. Wetherall, Pearson Verlag
 	\end{frame}
 	
 	\begin{frame}{Hosts}
-		Ein Host ist ein Rechner, der mit anderen Rechnern im Internet Daten austauscht. Hosts sind über die gesamte Welt verstreut und können PCs, Laptops, Handys oder IoT (Internet of Things)-Geräte sein.
+		\begin{block}{Definition}
+			Ein Host ist ein Rechner, der mit anderen Rechnern im Internet Daten austauscht. Hosts sind über die gesamte Welt verstreut und können PCs, Laptops, Handys oder IoT (Internet of Things)-Geräte sein.
+		\end{block}
 	\end{frame}
 	
 	\begin{frame}{\enquote{Letzte Meile}}
-		Als letzte Meile werden die Kupfer- (seltener Glasfaser-) oder Mobilfunkbrücken bezeichnet, mit denen Hosts mit den Netzwerkverteilern ihres Providers verbunden werden. Dieser Teil ist in der Praxis häufig der Flaschenhals für Internetverbindungen, da die Geschwindigkeit stark von der Länge dieser Verbindung und dem Typ der Verbindung abhängt. Je länger diese Strecke, desto langsamer ist die Internetverbindung.
-		Wenn vom Breitbandausbau geredet wird, ist damit meistens gemeint, mehr Netzwerkverteiler aufzustellen, um kürzere und somit schnellere Verbindungen zu den Hosts zu gewährleisten.		
+		\begin{block}{Definition}
+			Als letzte Meile werden die Kupfer- (seltener Glasfaser-) oder Mobilfunkbrücken bezeichnet, mit denen Hosts mit den Netzwerkverteilern ihres Providers verbunden werden. 
+			
+			\small Dieser Teil ist häufig der Flaschenhals für Internetverbindungen, da die Geschwindigkeit stark von der Länge dieser Verbindung und dem Typ der Verbindung abhängt. Je länger diese Strecke, desto langsamer ist die Internetverbindung.
+		\end{block}
+		
+		\begin{exampleblock}{\enquote{Breitbandausbau}}
+			Wenn vom Breitbandausbau geredet wird, ist damit meistens gemeint, mehr Netzwerkverteiler aufzustellen, um kürzere und somit schnellere Verbindungen zu den Hosts zu gewährleisten.
+		\end{exampleblock}	
 	\end{frame}
 
 	\begin{frame}{\enquote{Letzte Meile} II}
-		\begin{itemize}
-			\item{Bei Kupferleitungen (DSL) besitzt jeder Host eine eigene Leitung bis zum nächsten Verteiler, dem DSLAM. Diese haben eine relativ geringe Geschwindigkeit (ca. 16 Mbit, max. 64 Mbit).}
-			\item{Bei Glasfaserverbindungen teilt sich eine größere Gruppe von Hosts eine Leitung, die eine entsprechend hohe Kapazität zur Verfügung stellt. Der Nachteil ist, dass die Bandbreite abhängig von der Nutzung schwankt.}
-		\end{itemize}
+		\begin{block}{Kupferleitung (DSL)}
+			Bei DSL besitzt jeder Haushalt eine eigene Leitung bis zum nächsten Verteiler, dem DSLAM. Diese haben eine relativ geringe Geschwindigkeit (ca. 16 Mbit, max. 64 Mbit).
+		\end{block}
+		
+		\begin{block}{Kabel-/ Glasfaserleitungen}
+			Bei Glasfaserverbindungen teilen sich mehrere Haushalte eine Leitung, die eine entsprechend hohe Kapazität zur Verfügung stellt. Der Nachteil ist, dass die Bandbreite abhängig von der Nutzung schwankt.
+		\end{block}
 	\end{frame}
 	
 	\begin{frame}{PoP}
-		POPs (Point of Presence) sind Verbindungspunkte zwischen den Hosts und den ISPs und dienen als Netzwerkverteiler. Sie bilden die Brücke zwischen den schnellen Leitungen der ISPs und der letzten Meile der Hosts. Abhängig von den verwendeten Leitungen der letzten Meile müssen teilweise noch Übersetzungsgeräte (bspw. DSLAM [\enquote{Digital Subscriber Line Access Multiplexer}] dazwischengeschaltet werden, um die digitalen Signale des ISPs in analoge Signale umzuwandeln, die über das Kupferkabel gesendet werden können).
+		\begin{block}{POPs (Point of Presence)}
+			PoPs sind Verbindungspunkte zwischen Hosts und ISPs und dienen als Netzwerkverteiler (die grauen Boxen in ihrer Nachbarschaft). Sie bilden die Brücke zwischen den schnellen Leitungen der ISPs und der letzten Meile der Hosts. 
+			
+			Abhängig von den verwendeten Leitungen der letzten Meile müssen teilweise noch Übersetzungsgeräte (bspw. DSLAM [\enquote{Digital Subscriber Line Access Multiplexer}] dazwischengeschaltet werden, um die digitalen Signale des ISPs in analoge Signale umzuwandeln, die über das Kupferkabel gesendet werden können).
+		\end{block}
+		
 		Dazu zählen auch Mobilfunkantennen bspw. für Edge (2G)-, UMTS / HSDPA (3G)- und LTE (4G)- Netze.
 	\end{frame}
 	
@@ -128,9 +150,15 @@
 	\end{frame}
 	
 	\begin{frame}{IXP}
-		Beim Datenaustausch über das Internet kann es passieren, dass Sender und Empfänger nicht vom selben ISP versorgt werden. Die Daten müssen daher irgendwo an einen anderen ISP übergeben werden. In diesem Fall müssen ISPs die Anderen für diesen Transfer bezahlen. Dafür haben sie meist Verträge mit anderen (normalerweise größeren ISPs wie der Telekom), um die Daten kostengünstig übertragen zu können. Tier-1-ISPs stellen sich Verbindungen untereinander häufig sogar kostenlos zur Verfügung.
+		\begin{block}{Internet eXchange Point}
+			Beim Datenaustausch über das Internet kann es passieren, dass Sender und Empfänger nicht vom selben ISP versorgt werden. Die Daten müssen daher irgendwo an einen anderen ISP übergeben werden. 
+			
+			Dies passiert an einem IXP. Üblicherweise bezahlen dabei kleinere ISPs die größeren, damit sie die Pakete weiterleiten. Die großen Tier-1 ISPs tauschen die Daten meist kostenlos untereinander aus.
+		\end{block}
 		
-		Eine der größten IXPs (\enquote{Internet Exchange Point}) Deutschlands befindet sich in Frankfurt/Main, der es in Bezug auf den BND/NSA-Skandal schon häufiger in die Nachrichten geschafft hat.
+		\begin{exampleblock}{DE-CIX Frankfurt}
+			Eine der größten IXPs (\enquote{Internet Exchange Point}) Europas befindet sich in Frankfurt/Main, der es in Bezug auf den BND/NSA-Skandal schon häufiger in die Nachrichten geschafft hat.
+		\end{exampleblock}
 	\end{frame}
 	
 	\begin{frame}{Sonstige Netze}
@@ -138,6 +166,10 @@
 	\end{frame}
 	
 	\subsection{Kommunikation}
+	\begin{frame}
+		\centering \huge Webkommunikation	
+	\end{frame}		
+	
 	\begin{frame}{Webdienste}
 		Webdienste sind Programme im Internet, auf die von einem beliebigen Rechner aus zugegriffen werden kann. Diese Programme werden auf einem oder mehreren vernetzten Computern (einem \enquote{verteilten System}) ausgeführt. Dabei kann es sich um Webseiten, Datenbanken o.Ä. handeln. Die Hostcomputer sind unter einer (oder mehreren) Internetadressen zu erreichen. Normalerweise wird ein Dienst aber nur über eine einzige URL aufgerufen.
 	\end{frame}
@@ -349,7 +381,7 @@
 
 	\begin{frame}{Tracking beim Verbindungsaufbau II}
 		\begin{figure}[H]
-			\includegraphics[width=\textwidth]{Abbildungen/trackography.png}
+			%\includegraphics[width=\textwidth]{Abbildungen/trackography.png}
 			\label{fig:trackography}
 			\caption{Verbindungen im Allgemeinen}
 		\end{figure}
@@ -357,7 +389,7 @@
 
 	\begin{frame}{Tracking beim Verbindungsaufbau III}
 		\begin{figure}[H]
-			\includegraphics[width=\textwidth]{Abbildungen/webbeacons.png}
+			%\includegraphics[width=\textwidth]{Abbildungen/webbeacons.png}
 			\label{fig:webbeacons}
 			\caption{Social-media-like-buttons}
 		\end{figure}
@@ -375,21 +407,21 @@
 	
 	\begin{frame}{Tracking durch verräterischen Browser II}
 		\begin{figure}[V]
-			\includegraphics[width=0.8\textwidth]{Abbildungen/url_shortener.png}
+			%\includegraphics[width=0.8\textwidth]{Abbildungen/url_shortener.png}
 			\label{fig:url shortener}
 		\end{figure}
 	\end{frame}
 
 	\begin{frame}{Tracking durch verräterischen Browser III}
 		\begin{figure}[V]
-			\includegraphics[scale=0.5]{Abbildungen/lightbeam.png}
+			%\includegraphics[scale=0.5]{Abbildungen/lightbeam.png}
 			\label{fig:lightbeam}
 		\end{figure}
 	\end{frame}
 
 	\begin{frame}{Tracking durch verräterischen Browser IV}
 		\begin{figure}[V]
-			\includegraphics[scale=0.25]{Abbildungen/panopticlick.png}
+			%\includegraphics[scale=0.25]{Abbildungen/panopticlick.png}
 			\label{fig:panopticlick}
 		\end{figure}
 	\end{frame}
