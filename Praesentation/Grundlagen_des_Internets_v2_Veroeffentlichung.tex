@@ -6,7 +6,7 @@
 %hierbei handelt es sich um die Präsentation imt .tex-Format
 %Abbildungen etc. müssen entsprechend in eigenen Unterordnern präsent sein!
 
-\documentclass[utf8]{beamer}
+\documentclass[hyperref={colorlinks,linkcolor=white}, utf8]{beamer}
 
 \mode<presentation>
 {
@@ -378,97 +378,141 @@
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
-
+	
 	\begin{frame}{Tracking beim Verbindungsaufbau II}
 		\begin{figure}[H]
-			%\includegraphics[width=\textwidth]{Abbildungen/trackography.png}
+			\includegraphics[width=\textwidth]{Abbildungen/trackography.png}
 			\label{fig:trackography}
 			\caption{Verbindungen im Allgemeinen}
 		\end{figure}
 	\end{frame}
-
+	
 	\begin{frame}{Tracking beim Verbindungsaufbau III}
 		\begin{figure}[H]
-			%\includegraphics[width=\textwidth]{Abbildungen/webbeacons.png}
+			\includegraphics[width=\textwidth]{Abbildungen/webbeacons.png}
 			\label{fig:webbeacons}
 			\caption{Social-media-like-buttons}
 		\end{figure}
 	\end{frame}
-
+	
 	
 	\begin{frame}{Tracking durch verräterischen Browser I}
 		\begin{itemize}
 			\item Geodaten
 			\item URLs 
 			\item Cookies in verschiedenen Geschmacksrichtungen
-			\item Browserfingerprinting: Betriebssystem, Browsersoftware, Auflösung, JavaScript / Flash, Plugins, Addons, installierte Schriften, Sprache, Cookies
+			\item Browserfingerprinting: Betriebssystem, Browsersoftware, Auflösung, JavaScript / Flash, Plugins, Addons, installierte Schriften, Sprache, Cookies ...
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}{Tracking durch verräterischen Browser II}
 		\begin{figure}[V]
-			%\includegraphics[width=0.8\textwidth]{Abbildungen/url_shortener.png}
+			\includegraphics[width=0.8\textwidth]{Abbildungen/url_shortener.png}
 			\label{fig:url shortener}
 		\end{figure}
 	\end{frame}
-
+	
 	\begin{frame}{Tracking durch verräterischen Browser III}
 		\begin{figure}[V]
-			%\includegraphics[scale=0.5]{Abbildungen/lightbeam.png}
+			\includegraphics[scale=0.5]{Abbildungen/lightbeam.png}
 			\label{fig:lightbeam}
 		\end{figure}
 	\end{frame}
-
+	
 	\begin{frame}{Tracking durch verräterischen Browser IV}
 		\begin{figure}[V]
-			%\includegraphics[scale=0.25]{Abbildungen/panopticlick.png}
+			\includegraphics[scale=0.25]{Abbildungen/panopticlick.png}
 			\label{fig:panopticlick}
 		\end{figure}
 	\end{frame}
 	
 	\subsubsection{\enquote{Angewandter Datenschutz} im Internet}
 	
-		\begin{frame}{Todo-Platzhalter}
-			\begin{itemize}
-				\item sicherheitsrelevante Ratschläge einbauen
-
-			\end{itemize}
-		\end{frame}
-	
-	\section{Counterstrike GO}
+	\section{Counterstrike}
 	\begin{frame}
-		\centering \huge \textbf{Counterstrike Go!}
+		\centering \huge \textbf{Counterstrike}
 	\end{frame}
-	\subsection{Verhalten im Netz}
-	\begin{frame}{Verhalten im Netz}
+	
+	
+	\subsection{Verhalten im Netz und technische Hilfsmittel}
+	\begin{frame}{Sicherheitsmaßnahmen}
 		\begin{itemize}
-			\item Datensparsamkeit
-			\begin{itemize}
-				\item Schein vs. Sein
-				\item Nicht überall registrieren, nicht eingeloggt bleiben
-			\end{itemize}
-			\item Kostenlose Dienste hinterfragen
-			\begin{itemize}
-				\item Suchmaschinen:
-				Jede Suche ist mit einer Motivation verbunden, die Rückschlüssel zulässt. https://duckduckgo.com ist gut.
-				\item Email:
-				[web / gmx / aol / google / yahoo / hotmail ...] Sind doof, weil die Nachrichten mit kommerziellen Interessen durchsucht werden. Besser: [mailbox.org / poesto.de]
-				\item Cloud:
-				Was ich nicht kontrollieren kann ist schon verloren. Würdet ihr wirklich gerne euren privaten Urlaubsfotos auf anderen Computern speichern, auf die mindestens irgendwelche Mitarbeit zugriff haben? Und außerdem: Irgendwann werden alle gehackt. Wenn, dann die Daten sehr ordentlich verschlüsseln.
-			\end{itemize}
+			\item Software aktuell halten
+			\item URLs vor dem Klicken überprüfen
+			\item JavaScript u. Flash im Ausnahmefall erlauben
+			\item Nachladen von Schriften deaktivieren
+			\item verschiede Passwörter nutzen
+			\item keine komischen Sachen runterladen und ausführen
 		\end{itemize}
 	\end{frame}
 	
-	\subsection{Technische Hilfsmittel}
-	\begin{frame}{Addons}
+	\begin{frame}{Datenschutzmaßnahmen}
+		\begin{itemize}
+			\item Datensparsamkeit
+			\begin{itemize}
+				\item weniger ist mehr
+				\item nicht überall registrieren
+				\item nicht eingeloggt bleiben
+			\end{itemize}
+			\item Kostenlose Dienste hinterfragen
+			\begin{itemize}
+				\item Suchmaschinen: \url{https://duckduckgo.com}
+				\item Email: \url{https://mailbox.org}, \url{https://poesto.de}
+				\item Cloud: verschlüsselt und oder selbst betreiben
+			\end{itemize}
+			\item auf HTTPS achten
+			\item Cookies verbieten, Ausnahmen erlauben
+			\item Verlauf und Cache sitzungsweise löschen lassen
+			\item JavaScript u. Flash deaktivieren
+			\item Plugins deaktivieren
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Addons Firefox I}
 		\noindent
 		\begin{description}
-			\item[Privaconf]{https://addons.mozilla.org/de/firefox/addon/privaconf/}
-			\item[Cookie-Controller]{https://addons.mozilla.org/de/firefox/addon/cookie-controller/}
-			\item[Canvasblocker]{https://addons.mozilla.org/de/firefox/addon/canvasblocker/}
-			\item[no-resource-uri-leak]{https://addons.mozilla.org/de/firefox/addon/no-resource-uri-leak/}
-			\item[UserAgentChanger]{Nicht benutzen!}
+			\item[PrivaConf] \url{https://addons.mozilla.org/de/firefox/addon/privaconf/}
+			\item[Cookie-Controller] \url{https://addons.mozilla.org/de/firefox/addon/cookie-controller/}
+			\item[Canvasblocker] \url{https://addons.mozilla.org/de/firefox/addon/canvasblocker/}
+			\item[no-resource-uri-leak] \url{https://addons.mozilla.org/de/firefox/addon/no-resource-uri-leak/}
+			\item[No-Script] \url{https://addons.mozilla.org/en-US/firefox/addon/noscript/}
 		\end{description}
+	\end{frame}
+	
+	\begin{frame}{Addons Firefox II}
+		\noindent
+		\begin{description}
+			\item[https-everywhere]\url{https://www.eff.org/https-everywhere}
+			\item[uBlockOrigin]\url{https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/}
+			\item[UserAgentChanger]{... Finger weg!}
+		\end{description}
+	\end{frame}
+	
+	\subsection{Links für Interessierte}
+	\begin{frame}{Datenkraken}
+		\noindent
+		\begin{itemize}
+			\item Google: \href{https://myactivity.google.com/}{Alles, was du bei Google gemacht hast}
+			\item facebook: \href{https://netzpolitik.org/2016/98-daten-die-facebook-ueber-dich-weiss-und-nutzt-um-werbung-auf-dich-zuzuschneiden/}{Was die so für Daten sammeln}
+			\item Apple: \href{https://www.apple.com/privacy/privacy-policy/}{Datenschutzbestimmungen}
+			\item towerdata: \href{http://intelligence.towerdata.com/pricing-append}{Daten von anderen einkaufen}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{much knowledge -- so interactive -- wow}
+		\noindent
+		\begin{itemize}
+			\item Hasso-Plattner-Institut: \href{https://sec.hpi.de/vulndb/sd_first/}{Browser-Sicherheits-Check}
+			\item Ratgeber: 
+			\href{https://www.mbem.nrw/unterwegs-im-oeffentlichen-wlan-aber-gut-geschuetzt}{Surfen im öffentlichem WLAN }
+			\item Ratgeber: \href{https://prism-break.org/en/}{Privacy freundliche Software}
+			\item Ratgeber: \href{(https://ssd.eff.org/)}{Privacy freundliche Software + Anleitung}
+			\item Online-Nachrichten: \href{https://trackography.org/}{Visualisierung von Trackern}
+			\item VDS: \href{http://www.zeit.de/datenschutz/malte-spitz-vorratsdaten }{Visualisierung von Metadaten}				
+			\item Browserfingerprinting \href{https://panopticlick.eff.org}{Browser-Check}
+			\item Nachschlagewerk zum Tracking: \href{https://privacy-handbuch.de/}{privacy Handbuch}
+			\item \url{https://download.terminal21.de/workshops/swap2016/}
+		\end{itemize}
 	\end{frame}
 	
 	% Da dies ein Vorlage für beliebige Vorträge ist, lassen sich kaum
@@ -482,7 +526,4 @@
 	% - Pro Rahmen sollte man zwischen 30s und 2min reden. Es sollte also
 	%   15 bis 30 Rahmen geben.
 	
-	
 \end{document}
-
-
